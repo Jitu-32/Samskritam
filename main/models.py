@@ -18,6 +18,16 @@ class Competition(models.Model):
     def __str__(self):
         return self.name
 
+class Student_data(models.Model):
+    user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    name = models.CharField(max_length=200)
+    age = models.IntegerField()
+    education_level = models.IntegerField(choices=[(1,"Class 1"),(2,"Class 2"),(3,"Class 3"),(4,"Class 4"),(5,"Class 5"),(6,"Class 6"),(7,"Class 7"),(8,"Class 8"),(9,"Class 9"),(10,"Class 10"),(11,"Class 11"),(12,"Class 12"),(13,"Undergrad"),(14,"Graduate")])        
+
+class Expert_data(models.Model):
+    user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    name = models.CharField(max_length=200)
+    age = models.IntegerField()
 
 class Pdf_question(models.Model):
     contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True,related_name='pdf_question')
