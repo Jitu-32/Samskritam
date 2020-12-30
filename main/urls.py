@@ -5,5 +5,6 @@ from django.shortcuts import render, redirect
 urlpatterns = [
 
 	path('',views.home,name="home"),
+	path('compete/',views.compete,name="compete"),
 
 ]
