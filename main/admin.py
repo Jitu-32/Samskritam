@@ -14,3 +14,6 @@ admin.site.register(MCQ_student_response)
 
 admin.site.register(FIB_question)
 admin.site.register(FIB_student_response)
+
+admin.site.register(Student_data)
+admin.site.register(Expert_data)
