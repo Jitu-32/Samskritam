@@ -67,6 +67,8 @@ https://templatemo.com/tm-529-ramayana
                 <input type="text" name="search" id="search" placeholder="Search..." />
               </form>
             </section>
+
+            
               
             <!-- Menu -->
             <nav id="menu">
@@ -90,8 +92,48 @@ https://templatemo.com/tm-529-ramayana
                 <li><a href="{% url 'compete' %}">Compete</a></li>
                 <li><a href="#">Classes</a></li>
                 <li><a href="#">About Us</a></li>
+                {%if not user.is_authenticated%}
+                <li><a href="{% url 'signup_view' %}">Sign Up</a></li>
+                {%endif%}
               </ul>
             </nav>
+
+            <br>
+            <!-- <div class="featured-posts"> -->
+            
+            <!-- </div> -->
+
+            {% if user.is_authenticated %}
+
+            <!-- <div class="row"> -->
+            <div class="heading">
+                <h4 style="color: white;">Hi {{user}}</h4>
+            </div>
+            <br>
+            <div class="heading">
+                <a href="{% url 'logout_view' %}"><button>Log Out</button></a>
+            </div>
+          <!-- </div> -->
+
+            {% else %}
+
+            <div class="heading">
+                <h4 style="color: white;">Log In</h4>
+              </div>
+            <section id="search" class="alt">
+              <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" id="username" placeholder="Username" />
+                <input type="password" name="password" id="password" placeholder="Password" />
+                <center>          
+                <button type="submit" name="submit"> Submit</button>                
+                </center>
+              </form>
+            </section>
+            <br><br><br>
+            <!-- <a href="{% url 'signup_view' %}"><button>Sign Up</button></a> -->
+
+            {%endif%}
 
             <!-- Featured Posts -->
             <div class="featured-posts">
