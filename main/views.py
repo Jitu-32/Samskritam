@@ -89,9 +89,15 @@ def competition_questions(request,pk):
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
             login(request,curr_user)
-            return(redirect(home))
+            return(redirect(home))        
 
     competition = Competition.objects.get(pk=pk)
+
+    answered = False
+
+    if Attempted_contests.objects.filter(contest = competition,student = request.user):
+        answered = True
+
 
     mcq_questions = MCQ_question.objects.filter(contest=competition)
     mcq_options = MCQ_option.objects.filter(contest=competition)  
@@ -100,10 +106,31 @@ def competition_questions(request,pk):
 
     pdf_questions = Pdf_question.objects.filter(contest=competition)
 
-    if request.method == 'POST':
-        print(request.POST)      
+    fresh = False
+    # print(answered)
 
-    return render(request,'main/competition_questions.html',{"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
+    if request.method == 'POST':
+        print(request.POST) 
+        for i in request.POST.keys():
+            if request.POST[i]:
+
+                if not fresh:
+                    fresh = True
+                    Attempted_contests.objects.create(contest = competition,student = request.user)
+
+                if i[0]=='m':
+                    # MCQ
+                    option = MCQ_option.objects.get(pk=int(i[3:]))
+                    response = MCQ_student_response.objects.create(question = option.question, student = request.user, response = option)
+                elif i[0]=='f':
+                    #FIB
+                    question = FIB_question.objects.get(pk=int(i[3:]))
+                    response = FIB_student_response.objects.create(question = question, student = request.user, response = request.POST[i])
+                else:
+                    #pdf  
+                    print(i[3:])          
+
+    return render(request,'main/competition_questions.html',{"answered":answered,"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
 
 def competition_leaderboard(request,pk):
 
