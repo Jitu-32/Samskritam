@@ -20,6 +20,12 @@ class Competition(models.Model):
     def __str__(self):
         return self.name
 
+class Attempted_contests(models.Model):
+    contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True)
+    student = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+
+    def __str__(self):
+        return(self.contest.name + " | " + self.student.first_name)
 
 class Student_data(models.Model):
     user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
@@ -82,7 +88,7 @@ class MCQ_student_response(models.Model):
     response = models.ForeignKey(MCQ_option,on_delete=models.SET_NULL,null=True,related_name='MCQ_student_response') 
     
     def __str__(self):
-        return(self.question.question + " | " + self.student)
+        return(self.question.question + " | " + self.student.first_name)
 
 class FIB_question(models.Model):
     contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True)
@@ -97,4 +103,4 @@ class FIB_student_response(models.Model):
     response = models.TextField(null = True,blank = True)
     
     def __str__(self):
-        return(self.question.question + " | " + self.student)
+        return(self.question.question + " | " + self.response)
