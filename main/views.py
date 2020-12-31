@@ -91,7 +91,19 @@ def competition_questions(request,pk):
             login(request,curr_user)
             return(redirect(home))
 
-    return render(request,'main/competition_questions.html')
+    competition = Competition.objects.get(pk=pk)
+
+    mcq_questions = MCQ_question.objects.filter(contest=competition)
+    mcq_options = MCQ_option.objects.filter(contest=competition)  
+
+    fib_questions = FIB_question.objects.filter(contest=competition)
+
+    pdf_questions = Pdf_question.objects.filter(contest=competition)
+
+    if request.method == 'POST':
+        print(request.POST)      
+
+    return render(request,'main/competition_questions.html',{"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
 
 def competition_leaderboard(request,pk):
 
@@ -102,7 +114,9 @@ def competition_leaderboard(request,pk):
             login(request,curr_user)
             return(redirect(home))
 
-    return render(request,'main/competition_leaderboard.html')        
+    competition = Competition.objects.get(pk=pk)        
+
+    return render(request,'main/competition_leaderboard.html',{"competition":competition})        
 
 
 

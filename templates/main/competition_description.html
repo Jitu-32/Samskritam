@@ -5,22 +5,67 @@
 
             
 <div class="row">
+                  <div class="col-md-12">
+                    <div class="section-heading">
+                      <h2 style="font-size:40px">{{competition.name}}</h2>
+                    </div>
+                  </div>
                       <div class="col-md-4">
                         <div class="filled-rectangle-button">
-                          <a href="{% url 'competition_description' pk=0 %}">Description</a>
+                          <a href="{% url 'competition_description' pk=competition.pk %}">Description</a>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="border-rectangle-button">
-                          <a href="{% url 'competition_questions' pk=0 %}">Questions</a>
+                          <a href="{% url 'competition_questions' pk=competition.pk %}">Questions</a>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="border-rectangle-button">
-                          <a href="{% url 'competition_leaderboard' pk=0 %}">Leaderboard</a>
+                          <a href="{% url 'competition_leaderboard' pk=competition.pk %}">Leaderboard</a>
                         </div>
                       </div>
                     </div>
+
+
+            <section class="simple-post">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="{{competition.imageurl}}" alt="">
+                    <div class="down-content">
+                      <p>{{competition.description}}</p>
+                    </div>
+                  </div>
+                </div>
+                
+               
+                
+              </div>
+            </section>
+            
+            <section class="simple-post">
+              <div class="container-fluid">
+              
+               <div class="row">
+                  <div class="col-md-6">
+            <h2>Organiser</h2>
+                      <p>{{competition.organiser}}</p>
+                      <br><br>
+
+                  </div>
+                  <div class="col-md-6">
+            <h2>.02 Right Column</h2>
+                      <p>Vivamus ornare, eros et ornare consectetur, ipsum ipsum sollicitudin libero, at condimentum risus nulla non enim. Quisque sodales vestibulum arcu porttitor finibus. Phasellus dictum nisl id augue ornare, vel interdum nibh mollis.</p>
+                      <p>Donec et massa at dolor condimentum ornare nec non lorem. Maecenas non egestas metus, sed ultricies lectus. Aliquam sit amet gravida tellus. Phasellus id erat nec mi ullamcorper viverra. Quisque vitae pharetra sem. Maecenas sit amet velit ultrices, malesuada quam id, porta nisl. Cras scelerisque ex ut bibendum egestas.</p>
+
+                  </div>
+                </div>
+                
+              </div>
+              </section>
+              
+              
 
       
 {%endblock%}
