@@ -1,0 +1,26 @@
+{%extends "main/base.html"%}
+{% load static %} 
+
+{% block content %}
+
+            
+<div class="row">
+                      <div class="col-md-4">
+                        <div class="border-rectangle-button">
+                          <a href="{% url 'competition_description' pk=0 %}">Description</a>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="border-rectangle-button">
+                          <a href="{% url 'competition_questions' pk=0 %}">Questions</a>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="filled-rectangle-button">
+                          <a href="{% url 'competition_leaderboard' pk=0 %}">Leaderboard</a>
+                        </div>
+                      </div>
+                    </div>
+
+      
+{%endblock%}

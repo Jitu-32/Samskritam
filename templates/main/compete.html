@@ -31,43 +31,22 @@
                         <thead>
                           <tr>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Organiser</th>
                             <th>Start</th>
                             <th>End</th>
                           </tr>
                         </thead>
                         <tbody>
+                          {% for competition in live_competitions %}
                           <tr>
-                            <td><a href="#">Grammer Quiz 1</a></td>
-                            <td>A simple quiz on sanskrit grammer</td>
-                            <td>22:00 30/12/2020</td>
-                            <td>09:00 05/01/2021</td>
+                            <td><a href="{% url 'competition_description' pk=competition.pk %}">{{competition.name}}</a></td>
+                            <td>{{competition.organiser}}</td>
+                            <td>{{competition.start_time}}</td>
+                            <td>{{competition.end_time}}</td>
                           </tr>
-                          <tr>
-                            <td><a href="#">Grammer Quiz 2</a></td>
-                            <td>A simple quiz on sanskrit grammer</td>
-                            <td>22:00 30/12/2020</td>
-                            <td>09:00 05/01/2021</td>
-                          </tr>
-                          <tr>
-                            <td><a href="#">Essay writing 1</a></td>
-                            <td>A simple quiz on sanskrit grammer</td>
-                            <td>22:00 30/12/2020</td>
-                            <td>09:00 05/01/2021</td>
-                          </tr>
-                          <tr>
-                            <td>#1014</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
-                            <td>$20.50</td>
-                          </tr>
-                          <tr>
-                            <td>#1015</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
-                            <td>$20.50</td>
-                          </tr>
+                          {% endfor %}
                         </tbody>
+
                       </table>
                       <ul class="table-pagination">
                         <li><a href="#">Previous</a></li>
@@ -94,43 +73,19 @@
                         <thead>
                           <tr>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Organiser</th>
                             <th>Start</th>
                             <th>End</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        {% for competition in past_competitions %}
                           <tr>
-                            <td><a href="#">Grammer Quiz 1</a></td>
-                            <td>A simple quiz on sanskrit grammer</td>
-                            <td>22:00 30/12/2020</td>
-                            <td>09:00 05/01/2021</td>
+                            <td><a href="{% url 'competition_description' pk=competition.pk %}">{{competition.name}}</a></td>
+                            <td>{{competition.organiser}}</td>
+                            <td>{{competition.start_time}}</td>
+                            <td>{{competition.end_time}}</td>
                           </tr>
-                          <tr>
-                            <td><a href="#">Grammer Quiz 2</a></td>
-                            <td>A simple quiz on sanskrit grammer</td>
-                            <td>22:00 30/12/2020</td>
-                            <td>09:00 05/01/2021</td>
-                          </tr>
-                          <tr>
-                            <td><a href="#">Essay writing 1</a></td>
-                            <td>A simple quiz on sanskrit grammer</td>
-                            <td>22:00 30/12/2020</td>
-                            <td>09:00 05/01/2021</td>
-                          </tr>
-                          <tr>
-                            <td>#1014</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
-                            <td>$20.50</td>
-                          </tr>
-                          <tr>
-                            <td>#1015</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
-                            <td>$20.50</td>
-                          </tr>
-                        </tbody>
+                          {% endfor %}
                       </table>
                       <ul class="table-pagination">
                         <li><a href="#">Previous</a></li>
