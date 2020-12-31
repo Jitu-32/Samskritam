@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import FileSystemStorage
-from datetime import date
+from datetime import *
 
 def home(request):
 
@@ -59,4 +59,65 @@ def compete(request):
             login(request,curr_user)
             return(redirect(home))
 
-    return render(request,'main/compete.html')  
+    now = datetime.now()
+    print(now)
+    live_competitions = Competition.objects.filter(end_time__gte=now)
+    past_competitions = Competition.objects.filter(end_time__lt=now)
+    # all_competitions = Competition.objects.all()        
+
+    return render(request,'main/compete.html',{"live_competitions":live_competitions,"past_competitions":past_competitions})  
+
+
+def competition_description(request,pk):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+    competition = Competition.objects.get(pk=pk)   
+
+
+    return render(request,'main/competition_description.html',{"competition":competition})
+
+def competition_questions(request,pk):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+    competition = Competition.objects.get(pk=pk)
+
+    mcq_questions = MCQ_question.objects.filter(contest=competition)
+    mcq_options = MCQ_option.objects.filter(contest=competition)  
+
+    fib_questions = FIB_question.objects.filter(contest=competition)
+
+    pdf_questions = Pdf_question.objects.filter(contest=competition)
+
+    if request.method == 'POST':
+        print(request.POST)      
+
+    return render(request,'main/competition_questions.html',{"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
+
+def competition_leaderboard(request,pk):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+    competition = Competition.objects.get(pk=pk)        
+
+    return render(request,'main/competition_leaderboard.html',{"competition":competition})        
+
+
+
+
