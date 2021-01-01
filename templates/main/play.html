@@ -38,7 +38,7 @@
                         <tbody>
                           {% for game in games %}
                           <tr>
-                            <td><a href="{% url 'game' pk=game.pk %}">{{game.name}}</a></td>
+                            <td><a href="{% url 'game' gamename=game.name %}">{{game.name}}</a></td>
                             <td>{{game.game_type}}</td>
                             <td>{{game.description}}</td>
                           </tr>

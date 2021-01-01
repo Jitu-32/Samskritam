@@ -13,8 +13,8 @@ urlpatterns = [
 	path('competition_questions/<int:pk>/',views.competition_questions,name="competition_questions"),
 	path('competition_leaderboard/<int:pk>/',views.competition_leaderboard,name="competition_leaderboard"),
 	path('play/',views.play,name="play"),
-	path('play/<int:pk>/',views.game,name="game"),
-	path('play/<int:pk>/main/game/memorygame.html', TemplateView.as_view(template_name="main/game/memorygame.html"), name='memorygame'),
+	path('play/<str:gamename>/',views.game,name="game"),
+	path('play/memorygame',views.memorygame,name="memorygame") ,
 	
 ]
 

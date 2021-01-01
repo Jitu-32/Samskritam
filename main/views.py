@@ -164,7 +164,7 @@ def play(request):
     return render(request,'main/play.html',{"games": games})  
 
 
-def game(request,pk):
+def game(request,gamename):
 
     if request.method == 'POST':
         if 'username' in request.POST.keys():
@@ -173,7 +173,20 @@ def game(request,pk):
             login(request,curr_user)
             return(redirect(home))
 
-    game = Game.objects.get(pk=pk)   
+    game = Game.objects.get(name = gamename)   
 
 
     return render(request,'main/game.html',{"game":game})
+
+
+def memorygame(request):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+
+    return render(request,'main/game/memorygame.html',{"game":game})
