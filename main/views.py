@@ -147,4 +147,33 @@ def competition_leaderboard(request,pk):
 
 
 
+def play(request):
 
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+    now = datetime.now()
+    print(now)
+    games = Game.objects.all()
+    # all_competitions = Competition.objects.all()        
+
+    return render(request,'main/play.html',{"games": games})  
+
+
+def game(request,pk):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+    game = Game.objects.get(pk=pk)   
+
+
+    return render(request,'main/game.html',{"game":game})

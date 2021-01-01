@@ -1,0 +1,39 @@
+{%extends "main/base.html"%}
+{% load static %} 
+
+{% block content %}
+
+<div class="page-heading">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h1> {{game.name}} </h1>
+          <p>{{game.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Left Image -->
+<section class="left-image">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{% static 'assets/images/left-image.jpg' %}" alt="">
+        </div>
+        <div class="col-md-6">
+          <div class="right-content">
+            <h4>Ante Interdum Raclette</h4>
+            <p>Lorem ipsum dolor amet raclette chambray bitters, hammock celiac slow-carb flexitarian four dollar toast food truck health goth. Air plant brunch food truck vegan scenester organic crucifix irony pour-over pop-up austin hexagon kitsch swag. Godard literally humblebrag cloud bread vice master cleanse chambray typewriter put a bird on it brooklyn forage.<br><br>Air plant brunch food truck vegan scenester organic crucifix irony pour-over pop-up austin hexagon kitsch swag. Godard literally humblebrag cloud bread vice master cleanse chambray typewriter put bird brooklyn</p>
+            <div class="primary-button">
+              <a href="main\game\memorygame.html">Play</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}
