@@ -1,0 +1,32 @@
+{%extends "main/base.html"%}
+{% load static %} 
+
+{% block content %}
+
+            
+<div class="row">
+                      <div class="col-md-12">
+                    <div class="section-heading">
+                      <h2 style="font-size:40px">{{competition.name}}</h2>
+                    </div>
+                  </div>
+
+                      <div class="col-md-4">
+                        <div class="border-rectangle-button">
+                          <a href="{% url 'my_competition_description' pk=competition.pk %}">Description</a>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="border-rectangle-button">
+                          <a href="{% url 'my_competition_questions' pk=competition.pk %}">Questions</a>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="filled-rectangle-button">
+                          <a href="{% url 'my_competition_responses' pk=competition.pk %}">Responses</a>
+                        </div>
+                      </div>
+                    </div>
+
+      
+{%endblock%}

@@ -3,6 +3,12 @@
 
 {% block content %}
 
+{%if message%}
+<script>
+    alert('{{ message }}');
+    </script>
+ {%endif%}
+
             <!-- Banner -->
             <section class="main-banner">
               <div class="container-fluid">

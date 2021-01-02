@@ -9,15 +9,32 @@ from datetime import *
 
 def home(request):
 
+    login_error = None
+
     if request.method == 'POST':
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
 
+    expert = None
 
-    return render(request,'main/home.html')
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+
+
+    return render(request,'main/home.html',{"expert":expert})
+
+
+
 
 def logout_view(request):
     logout(request)
@@ -56,17 +73,46 @@ def compete(request):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
 
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user        
+
     now = datetime.now()
-    print(now)
+    # print(now)
     live_competitions = Competition.objects.filter(end_time__gte=now)
     past_competitions = Competition.objects.filter(end_time__lt=now)
     # all_competitions = Competition.objects.all()        
 
-    return render(request,'main/compete.html',{"live_competitions":live_competitions,"past_competitions":past_competitions})  
+    return render(request,'main/compete.html',{"expert":expert,"live_competitions":live_competitions,"past_competitions":past_competitions})  
 
+
+def my_competitions(request):
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    now = datetime.now()
+
+    my_live_competitions = Competition.objects.filter(end_time__gte=now,organiser = expert)
+    my_past_competitions = Competition.objects.filter(end_time__lt=now,organiser = expert)
+
+    return render(request,'main/my_competitions.html',{"expert":expert,"live_competitions":my_live_competitions,"past_competitions":my_past_competitions})
 
 def competition_description(request,pk):
 
@@ -74,26 +120,60 @@ def competition_description(request,pk):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user        
 
     competition = Competition.objects.get(pk=pk)   
 
 
-    return render(request,'main/competition_description.html',{"competition":competition})
+    return render(request,'main/competition_description.html',{"expert":expert,"competition":competition})
+
+def my_competition_description(request,pk):
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    competition = Competition.objects.get(pk=pk)      
+
+    return render(request,'main/my_competition_description.html',{"expert":expert,"competition":competition})    
+
 
 def competition_questions(request,pk):
+   
 
-    if request.method == 'POST':
-        if 'username' in request.POST.keys():
-            # print("Hello WOrld!")
-            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
-            return(redirect(home))        
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user            
 
     competition = Competition.objects.get(pk=pk)
 
     answered = False
+    message = None
+
+    if not request.user.is_authenticated :
+        message = "Please login to view the questions"
+        return render(request,'main/home.html',{"message":message})
+
+
 
     if Attempted_contests.objects.filter(contest = competition,student = request.user):
         answered = True
@@ -130,7 +210,30 @@ def competition_questions(request,pk):
                     #pdf  
                     print(i[3:])          
 
-    return render(request,'main/competition_questions.html',{"answered":answered,"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
+    return render(request,'main/competition_questions.html',{"expert":expert,"answered":answered,"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
+
+
+def my_competition_questions(request,pk):
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    competition = Competition.objects.get(pk=pk)  
+
+    mcq_questions = MCQ_question.objects.filter(contest=competition)
+    mcq_options = MCQ_option.objects.filter(contest=competition)  
+
+    fib_questions = FIB_question.objects.filter(contest=competition)
+
+    pdf_questions = Pdf_question.objects.filter(contest=competition)    
+
+    return render(request,'main/my_competition_questions.html',{"expert":expert,"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})    
 
 def competition_leaderboard(request,pk):
 
@@ -138,13 +241,38 @@ def competition_leaderboard(request,pk):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user        
 
     competition = Competition.objects.get(pk=pk)        
 
-    return render(request,'main/competition_leaderboard.html',{"competition":competition})        
+    return render(request,'main/competition_leaderboard.html',{"expert":expert,"competition":competition})        
 
 
+def my_competition_responses(request,pk):
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    competition = Competition.objects.get(pk=pk)      
+
+    return render(request,'main/my_competition_responses.html',{"expert":expert,"competition":competition})
 
 
