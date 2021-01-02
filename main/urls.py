@@ -12,16 +12,16 @@ urlpatterns = [
 	path('competition_description/<int:pk>/',views.competition_description,name="competition_description"),
 	path('competition_questions/<int:pk>/',views.competition_questions,name="competition_questions"),
 	path('competition_leaderboard/<int:pk>/',views.competition_leaderboard,name="competition_leaderboard"),
+	path('my_competitions/',views.my_competitions,name="my_competitions"),
+	path('my_competition_description/<int:pk>/',views.my_competition_description,name="my_competition_description"),
+	path('my_competition_questions/<int:pk>/',views.my_competition_questions,name="my_competition_questions"),
+	path('my_competition_responses/<int:pk>/',views.my_competition_responses,name="my_competition_responses"),
+]
 	path('play/',views.play,name="play"),
 	path('play/<str:gamename>/',views.game,name="game"),
 	path('play/memorygame_desc',views.memorygame_desc,name="memorygame_desc") ,
 	path('play/memorygame',views.memorygame,name="memorygame") ,
 	path('play/scramble_desc',views.scramble_desc,name="scramble_desc") ,
 	path('play/scramble',views.scramble,name="scramble") ,
-	
+
 ]
-
-
-
-
-    
