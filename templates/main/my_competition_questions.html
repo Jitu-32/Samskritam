@@ -14,17 +14,17 @@
 
                       <div class="col-md-4">
                         <div class="border-rectangle-button">
-                          <a href="{% url 'competition_description' pk=competition.pk %}">Description</a>
+                          <a href="{% url 'my_competition_description' pk=competition.pk %}">Description</a>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="filled-rectangle-button">
-                          <a href="{% url 'competition_questions' pk=competition.pk %}">Questions</a>
+                          <a href="{% url 'my_competition_questions' pk=competition.pk %}">Questions</a>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="border-rectangle-button">
-                          <a href="{% url 'competition_leaderboard' pk=competition.pk %}">Leaderboard</a>
+                          <a href="{% url 'my_competition_responses' pk=competition.pk %}">Responses</a>
                         </div>
                       </div>
                     </div>
@@ -50,7 +50,7 @@
                       <!-- <div class="row"> -->
 
                         {% if mcq_questions %}
-                        <h2>MCQ Questions</h2>
+                        <h2>MCQ Questions &nbsp; &nbsp; <a href="#" title="Add MCQ Question">+</a></h2>
                         <br>
                         {%endif%}
 
