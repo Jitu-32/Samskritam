@@ -275,4 +275,85 @@ def my_competition_responses(request,pk):
 
     return render(request,'main/my_competition_responses.html',{"expert":expert,"competition":competition})
 
+def play(request):
 
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+    now = datetime.now()
+    print(now)
+    games = Game.objects.all()
+    # all_competitions = Competition.objects.all()        
+
+    return render(request,'main/play.html',{"games": games})  
+#####
+
+def memorygame_desc(request):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+    return render(request,'main/game/memorygame_description.html')
+#####
+
+def game(request,gamename):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+    game = Game.objects.get(name = gamename)   
+
+
+    return render(request,'main/game.html',{"game":game})    
+
+
+def memorygame(request):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+
+    return render(request,'main/game/memorygame.html')
+
+
+
+
+def scramble_desc(request):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+
+    return render(request,'main/game/scramble_desc.html')    
+
+def scramble(request):
+
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request,curr_user)
+            return(redirect(home))
+
+
+    return render(request,'main/game/scramble.html')      

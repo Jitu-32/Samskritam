@@ -104,3 +104,14 @@ class FIB_student_response(models.Model):
     
     def __str__(self):
         return(self.question.question + " | " + self.response)
+
+
+class Game(models.Model):
+    name = models.CharField(max_length=200)
+    game_type = models.CharField(max_length=200) 
+    description = models.TextField(default='-')
+    imageurl = models.TextField(null = True, blank = True,default='-')
+    imagename = models.TextField(null = True, blank =True,default='-') 
+
+    def __str__(self):
+        return self.name

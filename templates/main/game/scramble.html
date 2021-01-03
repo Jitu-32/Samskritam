@@ -1,0 +1,50 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <h1>Memory Game</h1> -->
+  <link href="{% static 'main/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main/assets/css/scramble.css' %}">
+</head>
+
+<html lang="en" dir="ltr">
+<body>
+  <nav>
+    <h1>Scrambled Words</h1>
+
+    <div id="rules">
+      <p class="lead">Unscamble the words.</p>
+      <p>Type in your guess <small>(Enter works)</small>.</p>
+      <p>Get three correct and level up.</p>
+      <p>Get a word wrong three times and restart.</p>
+      <p>Finish level 8 and you win.</p>
+      <p>Good luck!</p>
+      <button id="play-btn">Let's Play</button>
+    </div>
+  </nav>
+
+  <div id="game-container" class="hidden">
+    <p>Level: <span id="level">1</span></p>
+    <p>Score: <span id="score">0</span></p>
+    <p>Attempts: <span id="attempts">0</span></p>
+    <p id="info"></p>
+
+    <div id="guess-container">
+      <p id="scrambled-word"></p>
+
+      <input id="user-guess" type="text" placeholder="Enter your guess">
+      <button id="submit">Submit</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
+</html>    
+
+<script src="{% static 'main/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'main/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'main/assets/js/scramble.js' %}"></script>
