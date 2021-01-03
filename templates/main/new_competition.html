@@ -1,0 +1,71 @@
+{%extends "main/base.html"%}
+{% load static %} 
+
+{% block content %}
+
+            
+{%if message%}
+<script>
+    alert('{{ message }}');
+    </script>
+ {%endif%}
+            
+    <section class="forms">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="section-heading">
+                      <h2>Sign Up !</h2>
+                    </div>
+                    <form id="contact" action="" method="post">
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-6">
+                          <fieldset>
+                            <input name="name" type="text" class="form-control" id="name" placeholder="Name" required="">
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-6">
+                          
+                        </div>
+
+                        <div class="col-md-6">
+                          <fieldset>
+                            <input name="username" type="text" class="form-control" id="username" placeholder="Username" required="">
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-6">
+                          
+                        </div>
+
+                        <div class="col-md-6">
+                          <fieldset>
+                            <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="">
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-6">
+                          
+                        </div>
+
+                        <div class="col-md-6">
+                          <fieldset>
+                            <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required="">
+                          </fieldset>
+                        </div>
+                        
+                        <div class="col-md-12">
+                          <button type="submit" id="form-submit" class="button">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+          
+
+      
+      {%endblock%}
