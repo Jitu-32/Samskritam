@@ -69,18 +69,13 @@ class MCQ_question(models.Model):
 
 class MCQ_option(models.Model):
     contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True)
-    question = models.ForeignKey(MCQ_question,on_delete=models.SET_NULL,null=True,related_name='mcq_option')    
+    question = models.ForeignKey(MCQ_question,on_delete=models.SET_NULL,null=True,related_name='mcq_option')  
+    correct = models.BooleanField(default=False)  
     option = models.TextField(null = True,blank = True)
     
     def __str__(self):
         return(self.question.question + " | " + self.option)
 
-class MCQ_correct_response(models.Model):
-    question =  models.ForeignKey(MCQ_question,on_delete=models.SET_NULL,null=True,related_name='mcq_correct_question')
-    answer = models.ForeignKey(MCQ_option,on_delete=models.SET_NULL,null=True,related_name='MCQ_correct_response')
-    
-    def __str__(self):
-        return(self.question.question + " | " + self.answer.option)
 
 class MCQ_student_response(models.Model):
     question =  models.ForeignKey(MCQ_question,on_delete=models.SET_NULL,null=True,related_name='mcq_student_question')

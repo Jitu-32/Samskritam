@@ -49,49 +49,71 @@
                       {% csrf_token %}
                       <!-- <div class="row"> -->
 
-                        {% if mcq_questions %}
-                        <h2>MCQ Questions &nbsp; &nbsp; <a href="#" title="Add MCQ Question">+</a></h2>
+                        
+                        <h2>MCQ Questions &nbsp; &nbsp; <a href="{% url 'new_mcq_question' pk=competition.pk %}" title="Add MCQ Question">+</a></h2>
                         <br>
-                        {%endif%}
+                        
 
                        {% for mcq_question in mcq_questions %}
                        
 
-                        <p style="font-size: 20px;color: black;"><b>{{forloop.counter}}. {{mcq_question.question}}</b></p>
+                        <p style="font-size: 20px;color: black;"><b>{{forloop.counter}}. Enter the question below.</b></p>
+
+                        <!-- <h6>Question</h6> -->
+                        <div class="col-12">
+                          <textarea name="mcq{{mcq_question.pk}}" id="mcq{{mcq_question.pk}}" placeholder="Enter the question here" rows="6">{{mcq_question.question}}</textarea>
+                        </div>
 
                         <br>
+                        <div class="col-md-12">
+                        <div class="section-heading">
+                            <h3 style="font-size: 22px;"><b><a href="{% url 'new_mcq_option' pk=mcq_question.pk %}">Add an option +</a></b></h3>
+                        </div>
+                      </div>
+                      <br>
 
-                          {% for option in mcq_options %}
-                              
-                              {% if option.question == mcq_question %}
-                              <!-- {{option.pk}} -->
-                              <div class="col-md-4 col-sm-4">
-                                <div class="radio-item">
-                                  <input name="mcq{{option.pk}}" type="checkbox" id="mcq{{option.pk}}" value="{{option.option}}">
-                                  <label for="mcq{{option.pk}}">{{option.option}}</label>
+                            {% for option in mcq_options %}
+
+                                {% if option.question == mcq_question %}
+                                
+                                <h6>Option</h6>
+                                <div class="col-12">
+                                  <textarea name="opt{{option.pk}}" id="opt{{option.pk}}" placeholder="Enter the option here" rows="6">{{option.option}}</textarea>
                                 </div>
-                              </div>
-                              {%endif%}
-                          {%endfor%}
+                                <div class="col-md-4 col-sm-4">
+                                  <div class="radio-item">
+                                    
+                                    {% if not option.correct %}
+                                    <input name="cor{{option.pk}}" type="checkbox" id="cor{{option.pk}}" value="{{option.option}}">
+                                    <label for="cor{{option.pk}}">Tick to mark above option as correct</label>
+                                    {% else %}
+                                    <input name="cor{{option.pk}}" type="checkbox" id="cor{{option.pk}}" value="{{option.option}}" checked>
+                                    <label for="cor{{option.pk}}">Tick to mark above option as correct</label>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                                
+                                {%endif%}
+                            {%endfor%}
 
                         {% endfor %}
 
                         <hr>
                         
-                        {%if fib_questions%}
+                        
                         <h2>FIB Questions</h2>
                         <br>
-                        {%endif%}
+                        
 
                         {% for fib_question in fib_questions %}
 
                          
 
-                        <p style="font-size: 20px;color: black;"><b>{{forloop.counter}}. {{fib_question.question}}</b></p>
+                        <p style="font-size: 20px;color: black;"><b>{{forloop.counter}}.</b></p>
                         <br>
 
                         <div class="col-12">
-                          <textarea name="fib{{fib_question.pk}}" id="fib{{fib_question.pk}}" placeholder="Enter your answer here" rows="6"></textarea>
+                          <textarea name="fib{{fib_question.pk}}" id="fib{{fib_question.pk}}" placeholder="Enter your answer here" rows="6">{{fib_question.question}}</textarea>
                         </div>
                         {% endfor %}
 

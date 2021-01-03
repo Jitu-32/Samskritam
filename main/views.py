@@ -190,7 +190,7 @@ def competition_questions(request,pk):
     # print(answered)
 
     if request.method == 'POST':
-        print(request.POST) 
+        # print(request.POST) 
         for i in request.POST.keys():
             if request.POST[i]:
 
@@ -213,6 +213,67 @@ def competition_questions(request,pk):
     return render(request,'main/competition_questions.html',{"expert":expert,"answered":answered,"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
 
 
+def new_competition(request):
+    # need to create a new competition
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    
+    return render(request,'main/new_competition.html',{"expert":expert})
+
+
+def new_mcq_question(request,pk):
+    # need to create a new opt
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    contest = Competition.objects.get(pk=pk)
+
+    new_question = MCQ_question.objects.create(contest=contest,question="")
+
+    # print(new_question)
+
+    
+    return(redirect(my_competition_questions,contest.pk))       
+
+def new_mcq_option(request,pk):
+    # need to create a new opt
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    mcq_question = MCQ_question.objects.get(pk=pk)
+    contest = mcq_question.contest
+
+    new_option = MCQ_option.objects.create(contest=mcq_question.contest,question=mcq_question,option="")
+
+    # print(new_question)
+
+    
+    return(redirect(my_competition_questions,contest.pk))           
+
+
+
 def my_competition_questions(request,pk):
 
     expert = None
@@ -227,11 +288,52 @@ def my_competition_questions(request,pk):
     competition = Competition.objects.get(pk=pk)  
 
     mcq_questions = MCQ_question.objects.filter(contest=competition)
-    mcq_options = MCQ_option.objects.filter(contest=competition)  
+    mcq_options = MCQ_option.objects.filter(contest=competition)
+    # print(mcq_options)
 
     fib_questions = FIB_question.objects.filter(contest=competition)
 
-    pdf_questions = Pdf_question.objects.filter(contest=competition)    
+    pdf_questions = Pdf_question.objects.filter(contest=competition) 
+
+     
+    
+
+    if request.method == 'POST':
+        # print(request.POST) 
+        for i in request.POST.keys():
+            if i[0]=='m':
+                # MCQ
+                question = MCQ_question.objects.get(pk=int(i[3:]))
+                question.question = request.POST[i]
+                question.save()
+            elif i[0]=='o':
+                # print(i)
+                option = MCQ_option.objects.get(pk=int(i[3:]))
+                option.option = request.POST[i]
+                option.save()
+            elif i[0]=='c' and i!='csrfmiddlewaretoken':
+                # print(i)
+                corr_option = MCQ_option.objects.get(pk=int(i[3:]))
+                corr_option.correct = True
+                corr_option.save()
+                
+
+            elif i[0]=='f':
+                #FIB
+                question = FIB_question.objects.get(pk=int(i[3:]))
+                question.question = request.POST[i]
+                question.save()
+            else:
+                #pdf  
+                print(i[3:])
+
+        corr_ops = MCQ_option.objects.filter(contest=competition,correct=True)
+        for i in corr_ops:
+            check_str = "cor"
+            check_str += str(i.pk)
+            if check_str not in request.POST.keys():
+                i.correct = False
+                i.save()       
 
     return render(request,'main/my_competition_questions.html',{"expert":expert,"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})    
 

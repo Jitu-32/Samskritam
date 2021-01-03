@@ -16,6 +16,9 @@ urlpatterns = [
 	path('my_competition_description/<int:pk>/',views.my_competition_description,name="my_competition_description"),
 	path('my_competition_questions/<int:pk>/',views.my_competition_questions,name="my_competition_questions"),
 	path('my_competition_responses/<int:pk>/',views.my_competition_responses,name="my_competition_responses"),
+	path('new_competition/',views.new_competition,name="new_competition"),
+	path('new_mcq_question/<int:pk>/',views.new_mcq_question,name="new_mcq_question"),
+	path('new_mcq_option/<int:pk>/',views.new_mcq_option,name="new_mcq_option"),
 
 	path('play/',views.play,name="play"),
 	path('play/<str:gamename>/',views.game,name="game"),
