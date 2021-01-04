@@ -1,0 +1,100 @@
+{%extends "main/base.html"%}
+{% load static %} 
+
+{% block content %}
+
+            
+<div class="row">
+                    <div class="col-md-12">
+                    <div class="section-heading">
+                      <h2 style="font-size:40px">{{competition.name}}</h2>
+                    </div>
+                  </div>                    
+
+
+                      <div class="col-md-4">
+                        <div class="border-rectangle-button">
+                          <a href="{% url 'my_competition_description' pk=competition.pk %}">Description</a>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="border-rectangle-button">
+                          <a href="{% url 'my_competition_questions' pk=competition.pk %}">Questions</a>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="border-rectangle-button">
+                          <a href="{% url 'my_competition_responses' pk=competition.pk %}">Responses</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <hr>
+
+                    {%if message%}
+<script>
+    alert('{{ message }}');
+    </script>
+ {%endif%}
+
+
+            
+            <section class="forms" style="margin-top: 40px ">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <h2>{{student}}'s Responses</h2>
+
+                    <br> <br>
+                               
+                    <form id="contact" action="" method="post">
+                      {% csrf_token %}
+                      <!-- <div class="row"> -->
+
+                        
+                        <h2>MCQ Responses</h2>
+                        <br>
+                        
+
+                       Marks Obtained in MCQ questions = {{marks_obt}}
+
+                        <hr>
+                        
+                        
+                        <h2>FIB Responses</h2>
+                        <br>
+                        
+
+                        {% for fib_response in fib_responses %}
+
+                         
+
+                        <p style="font-size: 20px;color: black;"><b>{{forloop.counter}}. {{fib_response.question.question}}</b></p>
+                        
+                        <b>Student Response: </b> &nbsp;
+
+                        {{fib_response.response}} <br><br>
+                        
+
+                        <div class="col-12 row">
+                         Marks assigned:
+                          <input type="text" name="mar{{fib_response.pk}}" placeholder="Enter the marks here" value="{{fib_response.marks}}" />
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-md-12">
+                          <button type="submit" id="form-submit" class="button">Mark as evaluated</button>
+                        </div>
+
+                      <!-- </div> -->
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+      
+{%endblock%}
