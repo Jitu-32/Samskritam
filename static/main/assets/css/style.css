@@ -1,0 +1,80 @@
+.keyboard {
+  margin: 1em auto;
+  width: 1160px;
+}
+
+.keyboard .key {
+  width: 50px;
+}
+
+.keyboard ul {
+  padding: 0;
+}
+
+.keyboard ul li {
+  list-style: none;
+  float: left;
+  padding: .15em .70em;
+  border-bottom: 2px solid #777;
+  margin-right: 1px;
+  border-right: 2px solid #777;
+  border-left: #fff 1px solid;
+  background-color: #E6EBF7;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 110%;
+  letter-spacing: 8px;
+  line-height: 19px;
+}
+
+.keyboard ul li:hover {
+  background-color: #ffe;
+}
+
+.keyboard ul.keyrow1 li, .keyboard ul.keyrow5 li {
+  background-color: #B4C7F7;
+}
+
+.keyboard ul.keyrow1 li:hover, .keyboard ul.keyrow5 li:hover {
+  background-color: #ffe;
+}
+
+.keyboard ul li span {
+  float: right;
+}
+
+.keyboard .backspance {
+  width: 98px;
+}
+
+.keyboard ul li .tab {
+  width: 75px;
+}
+
+.keyboard .key-or {
+  width: 74px;
+}
+
+.keyboard ul li .ctrl, .keyboard ul li .alt {
+  width: 82px;
+}
+
+.keyboard ul li .caplock {
+  width: 110px;
+}
+
+.keyboard ul li .shift {
+  width: 150px;
+}
+
+.keyboard ul li .enter {
+  width: 115px;
+}
+
+.ls1 {
+  letter-spacing: 1px;
+}
+
+.keyboard ul li .space {
+  width: 651px;
+}
