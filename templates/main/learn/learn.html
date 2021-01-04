@@ -1,0 +1,123 @@
+{%extends "main/base.html"%}
+{% load static %}
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+{% block content %}
+<div class="page-heading">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size: 3.5rem; text-align: center;font-weight: bold;
+        padding-top: 8%;">Learn</h1>
+        <h4 style="text-align: center; font-size: 1.5rem; font-weight: bold;">Start learning with the basics of the language with our vast library texts and its translations</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-deck">
+  <div class="col-lg-4 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'lesson1' %}"><button type="button" class="btn btn-primary btn-block">Lesson 1</button></a>
+      </div>
+      <div class="card-body">
+        instructions
+      </div>
+      <div class="card-footer">
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'lesson2' %}"><button type="button" class="btn btn-primary btn-block">Lesson 2</button></a>
+      </div>
+      <div class="card-body">
+        instructions
+      </div>
+      <div class="card-footer">
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'lesson3' %}"><button type="button" class="btn btn-primary btn-block">Lesson 3</button></a>
+      </div>
+      <div class="card-body">
+        instructions
+      </div>
+      <div class="card-footer">
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+<div class="card-deck">
+  <div class="col-lg-4 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'lesson4' %}"><button type="button" class="btn btn-primary btn-block">Lesson 4</button></a>
+      </div>
+      <div class="card-body">
+        instructions
+      </div>
+      <div class="card-footer">
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'lesson5' %}"><button type="button" class="btn btn-primary btn-block">Lesson 5</button></a>
+      </div>
+      <div class="card-body">
+        instructions
+      </div>
+      <div class="card-footer">
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'lesson6' %}"><button type="button" class="btn btn-primary btn-block">Lesson 6</button></a>
+      </div>
+      <div class="card-body">
+        instructions
+      </div>
+      <div class="card-footer">
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->

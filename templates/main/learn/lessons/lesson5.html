@@ -1,0 +1,623 @@
+{%extends "main/base.html"%}
+{% load static %}
+
+{% block content %}
+<div class="page-heading">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size: 3.5rem; text-align: center;font-weight: bold;
+        padding-top: 8%;">Lesson 5</h1>
+        <p style="text-align: center; font-size: 3rem; font-weight: bold;"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-deck" style="height: 250px; padding: 3%;">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 style="text-align: center; font-size: 1.5rem; font-weight: bold;">Notes</h4>
+      </div>
+      <div class="card-body" style="color: black;font-size: 1.2rem;">
+        <p id="appendnote">Here are your notes:</p>
+        {% for note_i in notes %}
+        <p>{{note_i.note}}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<article style="padding:3%;">
+
+  <div style="background-color: #F5EBD8;">
+    <p>Sentences in the previous lessons were simple. Yet simplest sentence in any language is a single-word sentence, which is often in imperative mood. For example ‘Go’. Although it is a sentence with single word, which is a verb, the subject is
+      implicit. “Go” means “(You) go”.</p>
+    <p>In Sanskrit also, it would be a single-word sentence, गच्छ. But if one is addressing two people to go, one would say गच्छतम् and if one is addressing more than two persons, then गच्छत.</p>
+    <p>Addressing anybody in the second person is not considered good linguistic etiquette. In Sanskrit there is a respectful pronoun of the second person and it takes verbs in third person ! The pronoun is भवत्. This pronoun also has structuring
+      according to gender and number. So the pronoun-forms become as in Table 1 below.</p>
+    <p dir="ltr" style="text-align:center;">Table 5-1</p>
+    <div dir="ltr">
+      <table style="border: 2px solid black;
+width: 60%;;
+line-height: 4;margin-top: auto;
+margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td>
+              <p dir="ltr">Gender लिङ्ग</p>
+            </td>
+            <td>
+              <p dir="ltr">Singular एकवचनम्</p>
+            </td>
+            <td>
+              <p dir="ltr">Dual द्विवचनम्</p>
+            </td>
+            <td>
+              <p dir="ltr">Plural बहुवचनम्</p>
+            </td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>Masculine पुंल्लिङ्ग</td>
+            <td>
+              <p dir="ltr">भवान्</p>
+            </td>
+            <td>
+              <p dir="ltr">भवन्तौ</p>
+            </td>
+            <td>
+              <p dir="ltr">भवन्तः</p>
+            </td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>Feminine स्त्रीलिङ्ग</td>
+            <td>
+              <p dir="ltr">भवती</p>
+            </td>
+            <td>
+              <p dir="ltr">भवत्यौ</p>
+            </td>
+            <td>
+              <p dir="ltr">भवत्यः</p>
+            </td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>Neuter नपुंसकलिङ्ग</td>
+            <td>
+              <p dir="ltr">भवत्</p>
+            </td>
+            <td>
+              <p dir="ltr">भवती</p>
+            </td>
+            <td>
+              <p dir="ltr">भवन्ति</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>With this we have now 9 more pronoun-subjects available to make 9 more sentences for the 16 धातु-s detailed in Lesson 4 !! So, 144 more sentences !!!<br>
+      All the pronouns in Table 1 will, as mentioned above take verbs in third person. So, for the धातु, गम् the 9 sentences in present tense will be as in Table 2.</p>
+    <p dir="ltr" style="text-align:center;">Table 5-2</p>
+    <p dir="ltr" style="text-align:center;">Present tense of गम् for pronouns in Table 1</p>
+    <div dir="ltr">
+      <table style="border: 2px solid black;
+width: 60%;;
+line-height: 4;margin-top: auto;
+margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td>
+              <p dir="ltr">Gender लिङ्ग</p>
+            </td>
+            <td>
+              <p dir="ltr">Singular एकवचनम्</p>
+            </td>
+            <td>
+              <p dir="ltr">Dual द्विवचनम्</p>
+            </td>
+            <td>
+              <p dir="ltr">Plural बहुवचनम्</p>
+            </td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>Masculine पुंल्लिङ्ग</td>
+            <td>
+              <p dir="ltr">भवान् गच्छति</p>
+            </td>
+            <td>
+              <p dir="ltr">भवन्तौ गच्छतः</p>
+            </td>
+            <td>
+              <p dir="ltr">भवन्तः गच्छन्ति</p>
+            </td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>Feminine स्त्रीलिङ्ग</td>
+            <td>
+              <p dir="ltr">भवती गच्छति</p>
+            </td>
+            <td>
+              <p dir="ltr">भवत्यौ गच्छतः</p>
+            </td>
+            <td>
+              <p dir="ltr">भवत्यः गच्छन्ति</p>
+            </td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>Neuter नपुंसकलिङ्ग</td>
+            <td>
+              <p dir="ltr">भवत् गच्छति</p>
+            </td>
+            <td>
+              <p dir="ltr">भवती गच्छतः</p>
+            </td>
+            <td>
+              <p dir="ltr">भवन्ति गच्छन्ति</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>These are the sentences in present tense. Coming back to the imperative mood called as आज्ञार्थ the verbal forms in third person for the धातु, गम् are गच्छतु गच्छताम् गच्छन्तु<br>
+      Having mentioned the verbal forms in imperative mood both for second person and also in third person, in Sanskrit the structure is made complete by providing forms also for first person ! This may not be needed. But poetic justice may need
+      addressing even oneself in the imperative mood ! Sanskrit provides for that !! So the verbal forms in imperative mood for the धातु, गम् are tabulated in Table 3.</p>
+    <p dir="ltr" style="text-align:center;">Table 5-3</p>
+    <p dir="ltr" style="text-align:center;">Forms in Imperative mood&nbsp;आज्ञार्थ-रूपाणि for verbal-root गम्-धातु</p>
+    <div dir="ltr">
+      <table style="border: 2px solid black;
+width: 60%;;
+line-height: 4;margin-top: auto;
+margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td>
+              <p dir="ltr">Person</p>
+            </td>
+            <td>
+              <p dir="ltr">Singular एकवचनम्</p>
+            </td>
+            <td>
+              <p dir="ltr">Dual द्विवचनम्</p>
+            </td>
+            <td>
+              <p dir="ltr">Plural बहुवचनम्</p>
+            </td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">First</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छानि</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छाव</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छाम</p>
+            </td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">Second</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छ</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छतम्</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छत</p>
+            </td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">Third</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छतु</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छताम्</p>
+            </td>
+            <td>
+              <p dir="ltr">गच्छन्तु</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>In Sanskrit the imperative mood also has the shade of blessing or that shade of meaning, which is implicit in the English auxiliary verb ‘may’. Elders would often bless youngsters saying शुभं भवतु. (शुभं = good, happy, pleasant, blissful भवतु
+      = may it be) As can be appreciated, the subject here is ‘it’. Hence the Imperative, third person, singular form of धातु भू is भवतु (= may it be)</p>
+    <p>Imperative mood is also used for the meaning as of the English auxiliary verb ‘let’. To say, “Let it be” in Sanskrit we would say it in a single word अस्तु. That is imperative third person singular of the धातु अस् (= to be).</p>
+    <p>Scriptures of all religions advocate “Speak the truth, be with righteous behaviour” सत्यं वद धर्मं चर. Here वद and चर are imperative, second person, singular forms for the धातु-s वद् and चर्. The implicit subject is ‘you’ त्वम्.</p>
+    <p>It is very important and useful to learn the imperative mood.<br>
+      We can add a few more new धातु-s into our diction.</p>
+    <p dir="ltr" style="text-align:center;">&nbsp;Table 5-4</p>
+    <p dir="ltr" style="text-align:center;">Forms in Imperative mood आज्ञार्थ-रूपाणि for few more new धातु-s</p>
+    <div dir="ltr">
+      <table style="border: 2px solid black;
+width: 60%;;
+line-height: 4;margin-top: auto;
+margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td>No.</td>
+            <td>Verbal Root</td>
+            <td>Meaning</td>
+            <td>Forms in Imperative mood आज्ञार्थ-रूपाणि</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>17</td>
+            <td>चर्</td>
+            <td>to move about, to go about, to conduct oneself</td>
+            <td>चराणि चराव चराम<br>
+              चर चरतम् चरत<br>
+              चरतु चरताम् चरन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>18</td>
+            <td>मिल्</td>
+            <td>to meet</td>
+            <td>मिलानि मिलाव मिलाम<br>
+              मिल मिलतम् &nbsp;मिलत<br>
+              मिलतु मिलताम् मिलन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>19</td>
+            <td>पठ्</td>
+            <td>to read</td>
+            <td>पठानि पठाव पठाम<br>
+              पठ पठतम् पठत<br>
+              पठतु पठताम् पठन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>20</td>
+            <td>पत्</td>
+            <td>to fall</td>
+            <td>पतानि पताव पताम<br>
+              पत पततम् पतत<br>
+              पततु पतताम् पतन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>21</td>
+            <td>दृश्</td>
+            <td>to see</td>
+            <td>पश्यानि पश्याव पश्याम<br>
+              पश्य पश्यतम् पश्यत<br>
+              पश्यतु पश्यताम् पश्यन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>22</td>
+            <td>त्यज्</td>
+            <td>to leave, to forsake, to cast off</td>
+            <td>त्यजानि त्यजाव त्यजाम<br>
+              त्यज त्यजतम् त्यजत<br>
+              त्यजतु त्यजताम् त्यजन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>23</td>
+            <td>लिख्</td>
+            <td>to write</td>
+            <td>लिखानि लिखाव लिखाम<br>
+              लिख लिखतम् लिखत<br>
+              लिखतु लिखताम् लिखन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>24</td>
+            <td>पृच्छ</td>
+            <td>to ask</td>
+            <td>पृच्छानि पृच्छाव पृच्छाम<br>
+              पृच्छ पृच्छतम् पृच्छत<br>
+              पृच्छतु पृच्छताम् पृच्छन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>25</td>
+            <td>श्रु / शृ</td>
+            <td>to hear, to listen to</td>
+            <td>श्रुणवानि श्रुणवाव शृणवाम<br>
+              शृणु शृणुतम् शृणुत<br>
+              शृणोतु शृणुताम् शृण्वन्तु</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>With 15 pronoun-forms noted in Lesson 4 and 9 more in Table 1 here, we now have 24 pronoun-forms सर्वनाम-रूपाणि. Taking these as subjects we can make 24 sentences in imperative mood for each of the 25 धातु-s. That gives scope to practise 600
+      sentences in imperative mood and of course 600 sentences in present tense – total 1200 sentences !!</p>
+    <p>Of course among the 16 धातु-s in Lesson 4, there were some with peculiar forms. It should be appropriate to have their forms in imperative mood also. Forms in imperative mood for all 16 धातु-s of Lesson 4 are provided in Table 5 below.</p>
+    <p dir="ltr" style="text-align:center;">Table 5-5</p>
+    <p dir="ltr" style="text-align:center;">Forms in imperative mood for all 16 धातु-s of Lesson 4</p>
+    <div dir="ltr">
+      <table style="border: 2px solid black;
+width: 60%;;
+line-height: 4;margin-top: auto;
+margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td>
+              <p dir="ltr">No.</p>
+            </td>
+            <td>
+              <p dir="ltr">धातु:</p>
+            </td>
+            <td>
+              <p dir="ltr">Meaning</p>
+            </td>
+            <td>
+              <p dir="ltr">Forms in Imperative mood आज्ञार्थ-रूपाणि</p>
+            </td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">1</p>
+            </td>
+            <td>गम्</td>
+            <td>to go</td>
+            <td>गच्छानि गच्छाव गच्छाम<br>
+              गच्छ गच्छतम् &nbsp;गच्छत<br>
+              गच्छतु गच्छताम् गच्छन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">2</p>
+            </td>
+            <td>वद्</td>
+            <td>to say, to speak</td>
+            <td>वदानि वदाव वदाम<br>
+              वद वदतम् वदत<br>
+              वदतु वदताम् वदन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">3</p>
+            </td>
+            <td>आ + गम्</td>
+            <td>to come</td>
+            <td>आगच्छानि आगच्छाव आगच्छाम<br>
+              आगच्छ आगच्छतम् &nbsp;आगच्छत<br>
+              आगच्छतु आगच्छताम् आगच्छन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">4</p>
+            </td>
+            <td>प्रति + गम्</td>
+            <td>to go towards, to go unto</td>
+            <td>प्रतिगच्छानि प्रतिगच्छाव प्रतिगच्छाम<br>
+              प्रतिगच्छ प्रतिगच्छतम् &nbsp;प्रतिगच्छत<br>
+              प्रतिगच्छतु प्रतिगच्छताम् प्रतिगच्छन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">5</p>
+            </td>
+            <td>प्रति + आ + गम्</td>
+            <td>to return</td>
+            <td>प्रत्यागच्छानि प्रत्यागच्छाव प्रत्यागच्छाम<br>
+              प्रत्यागच्छ प्रत्यागच्छतम् &nbsp;प्रत्यागच्छत<br>
+              प्रत्यागच्छतु प्रत्यागच्छताम् प्रत्यागच्छन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">6</p>
+            </td>
+            <td>कृ</td>
+            <td>to do</td>
+            <td>करवाणि करवाव करवाम<br>
+              कुरु कुरुतम् कुरुत<br>
+              करोतु कुरुताम् कुर्वन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">7</p>
+            </td>
+            <td>खाद्</td>
+            <td>to eat</td>
+            <td>खादानि खादाव खादाम खाद खादतम् खादत खादतु खादताम् खादन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">8</p>
+            </td>
+            <td>पा</td>
+            <td>to drink</td>
+            <td>पिबानि पिबाव पिबाम पिब पिबतम् पिबत पिबतु पिबताम् पिबन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">9</p>
+            </td>
+            <td>अस्</td>
+            <td>to be</td>
+            <td>असानि असाव असाम<br>
+              एधि स्तम् स्त<br>
+              अस्तु स्ताम् सन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">10</p>
+            </td>
+            <td>भू</td>
+            <td>to be, to become, to be present</td>
+            <td>भवानि भवाव भवाम भव भवतम् भवत भवतु भवताम् भवन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">11</p>
+            </td>
+            <td>उप + विश्</td>
+            <td>to sit</td>
+            <td>उपविशानि उपविशाव उपविशाम<br>
+              उपविश उपविशतम् उपविशत<br>
+              उपविशतु उपविशताम् उपविशन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">12</p>
+            </td>
+            <td>स्था</td>
+            <td>to stand, to halt, to stop</td>
+            <td>तिष्ठानि तिष्ठाव तिष्ठाम<br>
+              तिष्ठ तिष्ठतम् तिष्ठत<br>
+              तिष्ठतु तिष्ठताम् तिष्ठन्तु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">13</p>
+            </td>
+            <td>उत् + स्था</td>
+            <td>to stand up</td>
+            <td>उत्तिष्ठानि उत्तिष्ठाव उत्तिष्ठाम<br>
+              उत्तिष्ठ उत्तिष्ठतम् उत्तिष्ठत<br>
+              उत्तिष्ठतु उत्तिष्ठताम् उत्तिष्ठन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">14</p>
+            </td>
+            <td>दा</td>
+            <td>to give</td>
+            <td>ददानि ददाव ददाम<br>
+              देहि दत्तम् दत्त<br>
+              ददातु दत्ताम् ददतु</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">15</p>
+            </td>
+            <td>ग्रह् or गृह्</td>
+            <td>to take, to receive, to accommodate</td>
+            <td>गृह्णानि गृह्णाव गृह्णाम<br>
+              गृहाण गृह्णीतम् गृह्णीत<br>
+              गृह्णातु गृह्णीताम् गृह्णन्तु</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td>
+              <p dir="ltr">16</p>
+            </td>
+            <td>ज्ञा</td>
+            <td>to know, to become aware</td>
+            <td>जानानि जानाव जानाम<br>
+              जानीहि जानीतम् जानीत<br>
+              जानातु जानीताम् जानन्तु</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>I am very happy that having studied Present Tense in Lesson 4 it occurred to me so good to take up Imperative mood आज्ञार्थ in the Lesson 2. There is such a close correspondence in the forms of Present Tense and आज्ञार्थ as can be seen in
+      Table 6 below.</p>
+    <p dir="ltr" style="text-align:center;">Table 5-6</p>
+    <p dir="ltr" style="text-align:center;">correspondence in the forms of Present Tense and आज्ञार्थ</p>
+    <div dir="ltr">
+      <table style="border: 2px solid black;
+width: 60%;;
+line-height: 4;margin-top: auto;
+margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td>
+              <p dir="ltr">धातु:</p>
+            </td>
+            <td>
+              <p dir="ltr">forms of Present Tense</p>
+            </td>
+            <td>
+              <p dir="ltr">forms of आज्ञार्थ</p>
+            </td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td>
+              <p dir="ltr">गम्</p>
+            </td>
+            <td>गच्छामि गच्छावः गच्छामः<br>
+              गच्छसि गच्छथः गच्छथ<br>
+              गच्छति गच्छतः गच्छन्ति</td>
+            <td>गच्छानि गच्छाव गच्छाम<br>
+              गच्छ गच्छतम् &nbsp;गच्छत<br>
+              गच्छतु गच्छताम् गच्छन्तु</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>This observation should help anyone to have by oneself the forms in Present Tense for the new 9 धातु-s introduced in Table 4 in this Lesson.</p>
+
+</article>
+<br><br><br>
+
+<ul class="table-pagination">
+  <li><a href="lesson4">Prev</a></li>
+  <li><a href="lesson1">1</a></li>
+  <li><a href="#">...</a></li>
+  <li class="active"><a href="#">5</a></li>
+  <li><a href="lesson6">6</a></li>
+  <li><a href="lesson6">Next</a></li>
+</ul>
+
+<div id="addnote" style="transition: margin-right .5s; margin-right:0%;">
+  <button type="button" class="btn btn-secondary btn-large rounded-left" style="position: fixed;
+    top: 50%;
+    right: 0%;
+    height: 250px;
+    width: 75px;
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);" name="button" onclick="openNavNotes()">A <br>D <br>D<br><br>N <br>O <br>T <br>E <br>S</button>
+
+</div>
+
+<div id="addnotetext" style="height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  right: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s;">
+
+  <button type="button" class="btn btn-secondary btn-large rounded" style="position: static;
+  color: black;
+    top: 50%;
+    height: 50px;
+    width: 250px;
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);" name="button" onclick="closeNavNotes()">ADD NOTES</button>
+    <form method="post">
+      {% csrf_token %}
+    <label style="color: white; text-align: center;">Add a note here:</label>
+    <br>
+    <textarea name="note" rows="8" cols="80" style="width: 240px; height: 300px; margin: 0px 5px;"></textarea>
+    <input type="submit" onclick="" name="" value="Submit" style="height: 30px; width: 240px; margin: 0px 5px;" id="submitNote">
+  </form>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</script>
+{%endblock%}

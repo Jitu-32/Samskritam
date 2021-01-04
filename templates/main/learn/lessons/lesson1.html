@@ -1,0 +1,123 @@
+{%extends "main/base.html"%}
+{% load static %}
+
+{% block content %}
+<div class="page-heading">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size: 3.5rem; text-align: center;font-weight: bold;
+        padding-top: 8%;">Lesson 1</h1>
+        <p style="text-align: center; font-size: 3rem; font-weight: bold;">Gayatri Mantra - A Universal Prayer</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+
+<div class="card-deck" style="height: 250px; padding: 3%;">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 style="text-align: center; font-size: 1.5rem; font-weight: bold;">Notes</h4>
+      </div>
+      <div class="card-body" style="color: black;font-size: 1.2rem;">
+        <p id="appendnote">Here are your notes:</p>
+        {% for note_i in notes %}
+        <p>{{note_i.note}}</p>
+        {% endfor %}
+      </div>
+      </div>
+    </div>
+    </div>
+
+<h4 style="text-align: center; font-size: 1.5rem; font-weight: bold; color: #db6400; background-color: #fff8cd;">ॐ भूर्भुवः स्वः ।<br>
+  तत्सवितुर्वरेण्यं<br>
+  भर्गो देवस्यः धीमहि ।<br>
+  धियो यो नः प्रचोदयात् ।।</h4>
+<p style="text-align: center; font-size: 1.2rem;">Om Bhur Bhuvaḥ Swaḥ<br>
+  Tat-savitur Vareñyaṃ<br>
+  Bhargo Devasya Dheemahi<br>
+  Dhiyo Yonaḥ Prachodayāt</p>
+
+<p style="padding: 3% 20%; font-size: 1.2rem;"><strong>General meaning: </strong><br> We meditate on that most adored Supreme Lord, the creator, whose effulgence (divine light) illumines all realms (physical, mental and spiritual). May this divine
+  light illumine our intellect.
+  <br><br><br>
+  <strong>Word meaning: </strong><br> Om:The primeval sound;
+  <br>Bhur: the physical body/physical realm;
+  <br>Bhuvah: the life force/the mental realm
+  <br>Suvah: the soul/spiritual realm;
+  <br>Tat: That (God);
+  <br>Savitur: the Sun, Creator (source of all life);
+  <br>Vareñyam: adore;
+  <br>Bhargo: effulgence (divine light);
+  <br>Devasya: supreme Lord;
+  <br>Dhīmahi: meditate;
+  <br>Dhiyo: the intellect;
+  <br>Yo: May this light;
+  <br>Nah: our;
+  <br>Prachodayāt: illumine/inspire.
+</p>
+<br><br><br>
+<h4 style="text-align: center; font-size: 1.5rem; font-weight: bold; ">Watch the video to know more⬇</h4>
+<iframe width="500" height="480" src="https://www.youtube.com/embed/SarlTxrAbIY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+  style="margin: 0 auto; display: block;"></iframe>
+<br><br><br>
+
+
+<ul class="table-pagination">
+  <li class="active"><a href="lesson2">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">...</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="lesson6">6</a></li>
+  <li><a href="lesson2">Next</a></li>
+</ul>
+
+<div id="addnote" style="transition: margin-right .5s; margin-right:0%;">
+  <button type="button" class="btn btn-secondary btn-large rounded-left" style="position: fixed;
+    top: 50%;
+    right: 0%;
+    height: 250px;
+    width: 75px;
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);" name="button" onclick="openNavNotes()">A <br>D <br>D<br><br>N <br>O <br>T <br>E <br>S</button>
+
+</div>
+
+<div id="addnotetext" style="height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  right: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s;">
+
+  <button type="button" class="btn btn-secondary btn-large rounded" style="position: static;
+  color: black;
+    top: 50%;
+    height: 50px;
+    width: 250px;
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);" name="button" onclick="closeNavNotes()">ADD NOTES</button>
+    <form method="post">
+      {% csrf_token %}
+      <label style="color: white; text-align: center;">Add a note here:</label>
+      <br>
+      <textarea name="note" rows="8" cols="80" style="width: 240px; height: 300px; margin: 0px 5px;"></textarea>
+      <input type="submit" onclick="" name="" value="Submit" style="height: 30px; width: 240px; margin: 0px 5px;" id="submitNote">
+    </form>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</script>
+{%endblock%}
