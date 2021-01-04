@@ -458,4 +458,4 @@ def scramble(request):
             return(redirect(home))
 
 
-    return render(request,'main/game/scramble.html')      
+    return render(request,'main/game/a.html')      

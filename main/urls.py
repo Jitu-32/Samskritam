@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 
 urlpatterns = [
-
 	path('',views.home,name="home"),
 	path('compete/',views.compete,name="compete"),
 	path('logout/',views.logout_view,name="logout_view"),
@@ -19,12 +18,11 @@ urlpatterns = [
 	path('new_competition/',views.new_competition,name="new_competition"),
 	path('new_mcq_question/<int:pk>/',views.new_mcq_question,name="new_mcq_question"),
 	path('new_mcq_option/<int:pk>/',views.new_mcq_option,name="new_mcq_option"),
-
 	path('play/',views.play,name="play"),
 	path('play/<str:gamename>/',views.game,name="game"),
 	path('play/memorygame_desc',views.memorygame_desc,name="memorygame_desc") ,
 	path('play/memorygame',views.memorygame,name="memorygame") ,
 	path('play/scramble_desc',views.scramble_desc,name="scramble_desc") ,
 	path('play/scramble',views.scramble,name="scramble") ,
-
+	# path('test/',views.test,name="test"),
 ]
