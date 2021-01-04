@@ -207,8 +207,8 @@ def competition_questions(request,pk):
                     question = FIB_question.objects.get(pk=int(i[3:]))
                     response = FIB_student_response.objects.create(question = question, student = request.user, response = request.POST[i])
                 else:
-                    #pdf  
-                    print(i[3:])          
+                    #pdf
+                    print(i[3:])
 
     return render(request,'main/competition_questions.html',{"expert":expert,"answered":answered,"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
 
@@ -373,7 +373,7 @@ def my_competition_responses(request,pk):
     if not expert:
         return(redirect(home))
 
-    competition = Competition.objects.get(pk=pk)      
+    competition = Competition.objects.get(pk=pk)
 
     return render(request,'main/my_competition_responses.html',{"expert":expert,"competition":competition})
 
