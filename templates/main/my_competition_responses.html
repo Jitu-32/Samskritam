@@ -4,7 +4,7 @@
 {% block content %}
 
             
-<div class="row">
+                <div class="row">
                       <div class="col-md-12">
                     <div class="section-heading">
                       <h2 style="font-size:40px">{{competition.name}}</h2>
@@ -27,6 +27,68 @@
                         </div>
                       </div>
                     </div>
+
+
+
+                    <section class="tables">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <div class="default-table">
+                      
+                      <div class="section-heading">
+                        <h2>Contestant Responses</h2>
+                      </div>
+                      
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Username</th>
+                            <th>Checked</th>
+                            <th>Marks Obtained</th>
+                            <!-- <th>End</th> -->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for student in attempted_contests %}
+                          <tr>
+                            <td><a href="{% url 'my_competition_student_response' pk=competition.pk student_id=student.student.pk %}">{{student.student}}</a></td>
+                            {% if student.evaluated %}
+                            <td>Yes</td>
+                            {% else %}
+                            <td>No</td>
+                            {%endif%}
+                            <td>{{student.marks}}</td>
+                            <!-- <td>{{competition.end_time}}</td> -->
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+
+                      </table>
+                      <ul class="table-pagination">
+                        <li><a href="#">Previous</a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#">2</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">9</a></li>
+                        <li><a href="#">Next</a></li>
+                      </ul>
+                    </div>
+
+                    <br><br><br>
+                    <hr>
+                    <br>
+
+                    
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+
 
       
 {%endblock%}

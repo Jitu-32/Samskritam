@@ -208,7 +208,8 @@ def competition_questions(request,pk):
                     response = FIB_student_response.objects.create(question = question, student = request.user, response = request.POST[i])
                 else:
                     #pdf  
-                    print(i[3:])          
+                    print(i[3:])    
+        return(redirect(competition_questions,competition.pk))                  
 
     return render(request,'main/competition_questions.html',{"expert":expert,"answered":answered,"competition":competition,"mcq_options":mcq_options,"mcq_questions":mcq_questions,"fib_questions":fib_questions,"pdf_questions":pdf_questions})
 
@@ -373,9 +374,42 @@ def my_competition_responses(request,pk):
     if not expert:
         return(redirect(home))
 
-    competition = Competition.objects.get(pk=pk)      
+    competition = Competition.objects.get(pk=pk)    
 
-    return render(request,'main/my_competition_responses.html',{"expert":expert,"competition":competition})
+
+    attempted_contests = Attempted_contests.objects.filter(contest=competition)  
+
+
+    return render(request,'main/my_competition_responses.html',{"expert":expert,"competition":competition,"attempted_contests":attempted_contests})
+
+
+def my_competition_student_response(request,pk,student_id):
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    competition = Competition.objects.get(pk=pk)
+    student = User.objects.get(pk=student_id)
+
+    # mcq_questions = MCQ_question.objects.filter(contest=competition)
+    # mcq_options = MCQ_option.objects.filter(contest=competition)
+    # mcq_responses = MCQ_student_response.objects.filter(contest=competition,student = student)
+    # print(mcq_options)
+
+    # fib_questions = FIB_question.objects.filter(contest=competition)
+    fib_responses = FIB_student_response.objects.filter(contest=competition,student=student)
+
+    pdf_questions = Pdf_question.objects.filter(contest=competition)
+
+    
+    return render(request,'main/my_competition_student_response.html',{"expert":expert,"competition":competition,"fib_responses":fib_responses})    
+
 
 def play(request):
 
@@ -383,7 +417,12 @@ def play(request):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
 
     now = datetime.now()
@@ -400,7 +439,12 @@ def memorygame_desc(request):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
 
     return render(request,'main/game/memorygame_description.html')
@@ -412,7 +456,12 @@ def game(request,gamename):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
 
     game = Game.objects.get(name = gamename)   
@@ -427,7 +476,12 @@ def memorygame(request):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
 
 
@@ -442,7 +496,12 @@ def scramble_desc(request):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
 
 
@@ -454,7 +513,12 @@ def scramble(request):
         if 'username' in request.POST.keys():
             # print("Hello WOrld!")
             curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
-            login(request,curr_user)
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})    
+
             return(redirect(home))
 
 
