@@ -23,9 +23,14 @@ class Competition(models.Model):
 class Attempted_contests(models.Model):
     contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True)
     student = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    evaluated = models.BooleanField(default=False)
+    marks = models.IntegerField(default=0)
 
     def __str__(self):
         return(self.contest.name + " | " + self.student.first_name)
+
+
+
 
 class Student_data(models.Model):
     user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
@@ -47,6 +52,7 @@ class Expert_data(models.Model):
 class Pdf_question(models.Model):
     contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True,related_name='pdf_question')
     question = models.TextField(null = True,blank = True)
+    marks = models.IntegerField(default=0)
 
     def __str__(self):
         return(self.contest.name + " | " + self.question)
@@ -56,6 +62,7 @@ class Pdf_student_response(models.Model):
     student = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     fileurl = models.TextField(null = True, blank = True,default='-')
     filename = models.TextField(null = True, blank =True,default='-')    
+    marks = models.IntegerField(default=0)
 
     def __str__(self):
         return(self.contest.name + " | " + self.student)
@@ -63,7 +70,8 @@ class Pdf_student_response(models.Model):
 class MCQ_question(models.Model):
     contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True,related_name='mcq_question')
     question = models.TextField(null = True,blank = True)
-    
+    marks = models.IntegerField(default=0)
+
     def __str__(self):
         return(self.contest.name + " | " + self.question)
 
@@ -78,9 +86,11 @@ class MCQ_option(models.Model):
 
 
 class MCQ_student_response(models.Model):
+    contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True)
     question =  models.ForeignKey(MCQ_question,on_delete=models.SET_NULL,null=True,related_name='mcq_student_question')
     student = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,related_name='mcq_student')
     response = models.ForeignKey(MCQ_option,on_delete=models.SET_NULL,null=True,related_name='MCQ_student_response') 
+    marks = models.IntegerField(default=0)
     
     def __str__(self):
         return(self.question.question + " | " + self.student.first_name)
@@ -88,15 +98,18 @@ class MCQ_student_response(models.Model):
 class FIB_question(models.Model):
     contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True)
     question = models.TextField(null = True,blank = True)
-    
+    marks = models.IntegerField(default=0)
+
     def __str__(self):
         return(self.contest.name + " | " + self.question)
 
 class FIB_student_response(models.Model):
+    contest = models.ForeignKey(Competition,on_delete=models.SET_NULL,null=True)
     question =  models.ForeignKey(FIB_question,on_delete=models.SET_NULL,null=True)
     student = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     response = models.TextField(null = True,blank = True)
-    
+    marks = models.IntegerField(default=0)
+
     def __str__(self):
         return(self.question.question + " | " + self.response)
 
@@ -110,3 +123,6 @@ class Game(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
