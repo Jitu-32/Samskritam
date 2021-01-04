@@ -16,8 +16,10 @@ urlpatterns = [
 	path('my_competition_questions/<int:pk>/',views.my_competition_questions,name="my_competition_questions"),
 	path('my_competition_responses/<int:pk>/',views.my_competition_responses,name="my_competition_responses"),
 	path('new_competition/',views.new_competition,name="new_competition"),
+	path('my_competition_student_response/<int:pk>/<int:student_id>/',views.my_competition_student_response,name="my_competition_student_response"),
 	path('new_mcq_question/<int:pk>/',views.new_mcq_question,name="new_mcq_question"),
 	path('new_mcq_option/<int:pk>/',views.new_mcq_option,name="new_mcq_option"),
+	
 	path('play/',views.play,name="play"),
 	path('play/<str:gamename>/',views.game,name="game"),
 	path('play/memorygame_desc',views.memorygame_desc,name="memorygame_desc") ,
