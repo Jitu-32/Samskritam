@@ -10,7 +10,6 @@
   <meta name="author" content="">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
   <style>
-
     .mastbk {
       height: 0;
       width: 100%;
@@ -115,7 +114,7 @@ https://templatemo.com/tm-529-ramayana
         <!-- Search Box -->
         <section id="search" class="alt">
           <form method="get" action="#">
-            <input type="text" name="search" id="search" placeholder="Search..." />
+            <input type="text" name="search" id="transliterateTextarea" placeholder="Search..." />
           </form>
         </section>
 
@@ -135,14 +134,7 @@ https://templatemo.com/tm-529-ramayana
                     <li><a href="#">Third Sub Menu</a></li>
                   </ul>
                 </li> -->
-            <li>
-              <span class="opener">Learn</span>
-              <ul>
-                <li><a href="#">First Sub Menu</a></li>
-                <li><a href="#">Second Sub Menu</a></li>
-                <li><a href="#">Third Sub Menu</a></li>
-              </ul>
-            </li>
+            <li><a href="{% url 'learn' %}">Learn </a></li>
             <li><a href="{% url 'compete' %}">Compete</a></li>
             {% if expert %}
             <li><a href="{% url 'my_competitions' %}">My Competitions</a></li>
@@ -453,16 +445,20 @@ https://templatemo.com/tm-529-ramayana
   <script src="{% static 'main/assets/js/transition.js' %}"></script>
   <script src="{% static 'main/assets/js/owl-carousel.js' %}"></script>
   <script src="{% static 'main/assets/js/custom.js' %}"></script>
+  <script type="text/javascript" src="http://vaani.neechalkaran.com/Scripts/google_jsapi.js"></script>
+  <script type="text/javascript" src="{% static 'main/assets/js/transliteration.js' %}"></script>
+  <script src="{% static 'main/assets/js/notes.js'%}"></script>
+
   <script>
     function openNav() {
       document.getElementById("mymastbk").style.height = "250px";
       document.getElementById("mymastbk").style.paddingBottom = "10px";
-      document.getElementById("main").style.paddingBottom="250px";
+      document.getElementById("main").style.paddingBottom = "250px";
     }
 
     function closeNav() {
       document.getElementById("mymastbk").style.height = "0px";
-      document.getElementById("main").style.paddingBottom="0px";
+      document.getElementById("main").style.paddingBottom = "0px";
     }
   </script>
 </body>

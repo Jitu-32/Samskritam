@@ -19,12 +19,19 @@ urlpatterns = [
 	path('my_competition_student_response/<int:pk>/<int:student_id>/',views.my_competition_student_response,name="my_competition_student_response"),
 	path('new_mcq_question/<int:pk>/',views.new_mcq_question,name="new_mcq_question"),
 	path('new_mcq_option/<int:pk>/',views.new_mcq_option,name="new_mcq_option"),
-	
+
 	path('play/',views.play,name="play"),
 	path('play/<str:gamename>/',views.game,name="game"),
 	path('play/memorygame_desc',views.memorygame_desc,name="memorygame_desc") ,
 	path('play/memorygame',views.memorygame,name="memorygame") ,
 	path('play/scramble_desc',views.scramble_desc,name="scramble_desc") ,
 	path('play/scramble',views.scramble,name="scramble") ,
-	# path('test/',views.test,name="test"),
+	path('test/',views.test,name="test"),
+	path('learn/',views.learn,name="learn"),
+	path('learn/lesson1',views.lesson1,name='lesson1'),
+	path('learn/lesson2',views.lesson2,name='lesson2'),
+	path('learn/lesson3',views.lesson3,name='lesson3'),
+	path('learn/lesson4',views.lesson4,name='lesson4'),
+	path('learn/lesson5',views.lesson5,name='lesson5'),
+	path('learn/lesson6',views.lesson6,name='lesson6'),
 ]

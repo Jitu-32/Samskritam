@@ -1,0 +1,688 @@
+{%extends "main/base.html"%}
+{% load static %}
+
+{% block content %}
+<div class="page-heading">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size: 3.5rem; text-align: center;font-weight: bold;
+        padding-top: 8%;">Lesson 4</h1>
+        <p style="text-align: center; font-size: 3rem; font-weight: bold;"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-deck" style="height: 250px; padding: 3%;">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 style="text-align: center; font-size: 1.5rem; font-weight: bold;">Notes</h4>
+      </div>
+      <div class="card-body" style="color: black;font-size: 1.2rem;">
+        <p id="appendnote">Here are your notes:</p>
+        {% for note_i in notes %}
+        <p>{{note_i.note}}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+
+<article style="padding:3%;">
+
+  <div style="background-color: #F5EBD8;">
+    <p>Simplest way to start learning Sanskrit is to learn to make simple sentences. Below are some simple sentences.</p>
+    <p align="center">Table 4-1</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">1</td>
+            <td valign="top">I go</td>
+            <td valign="top">अहं गच्छामि</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">2</td>
+            <td valign="top">We go</td>
+            <td valign="top">वयं गच्छामः</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">3</td>
+            <td valign="top">You (Singular) go</td>
+            <td valign="top">त्वं गच्छसि</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">4</td>
+            <td valign="top">You (plural) go</td>
+            <td valign="top">यूयं गच्छथ</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">5</td>
+            <td valign="top">He goes</td>
+            <td valign="top">सः गच्छति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">6</td>
+            <td valign="top">She goes</td>
+            <td valign="top">सा गच्छति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">7</td>
+            <td valign="top">It goes</td>
+            <td valign="top">तत् गच्छति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">8</td>
+            <td valign="top">They (masculine) go</td>
+            <td valign="top">ते गच्छन्ति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">9</td>
+            <td valign="top">They (feminine) go</td>
+            <td valign="top">ताः गच्छन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">10</td>
+            <td valign="top">They (neuter) go</td>
+            <td valign="top">तानि गच्छन्ति</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Following glossary in Table 2 is clear from the above.</p>
+    <p align="center">Table 4-2</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td valign="top">No.</td>
+            <td valign="top">English</td>
+            <td valign="top">Sanskrit</td>
+            <td valign="top">What this is</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">1</td>
+            <td valign="top">I</td>
+            <td valign="top">अहं</td>
+            <td valign="top">Pronoun – First person, singular</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">2</td>
+            <td valign="top">We</td>
+            <td valign="top">वयं</td>
+            <td valign="top">Pronoun – First person, plural</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">3</td>
+            <td valign="top">You (Singular)</td>
+            <td valign="top">त्वं</td>
+            <td valign="top">Pronoun – Second person, singular</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">4</td>
+            <td valign="top">You (plural)</td>
+            <td valign="top">यूयं</td>
+            <td valign="top">Pronoun – Second person, plural</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">5</td>
+            <td valign="top">He</td>
+            <td valign="top">सः</td>
+            <td valign="top">Pronoun – Third person, masculine, singular</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">6</td>
+            <td valign="top">She</td>
+            <td valign="top">सा</td>
+            <td valign="top">Pronoun – Third person, feminine, singular</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">7</td>
+            <td valign="top">It</td>
+            <td valign="top">तत्</td>
+            <td valign="top">Pronoun – Third person, neuter, singular</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">8</td>
+            <td valign="top">They (masculine)</td>
+            <td valign="top">ते</td>
+            <td valign="top">Pronoun – Third person, masculine, plural</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">9</td>
+            <td valign="top">They (feminine)</td>
+            <td valign="top">ताः</td>
+            <td valign="top">Pronoun – Third person, feminine, plural</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">10</td>
+            <td valign="top">They (neuter)</td>
+            <td valign="top">तानि</td>
+            <td valign="top">Pronoun – Third person, neuter, plural</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>As is known the pronouns of the third person, singular, viz. He, She, It, are different according to the gender. This is so in Sanskrit also.</p>
+    <p>In English, the pronoun of third person plural is ‘they’. It is common for all three genders. In Sanskrit it is NOT common.</p>
+    <p>Coming to the verb, in English the verb has only two forms – ‘go’ and ‘goes’.<br>
+      In Sanskrit, they are different according to the person (first, second or third) and number (singular or plural)</p>
+    <p align="center">Table 4-3</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td valign="top">No.</td>
+            <td valign="top">Person</td>
+            <td valign="top">Number</td>
+            <td valign="top">Verb</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">1</td>
+            <td valign="top">First</td>
+            <td valign="top">Singular</td>
+            <td valign="top">गच्छामि</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">2</td>
+            <td valign="top">– First</td>
+            <td valign="top">– Plural</td>
+            <td valign="top">गच्छामः</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">3</td>
+            <td valign="top">Second</td>
+            <td valign="top">Singular</td>
+            <td valign="top">गच्छसि</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">4</td>
+            <td valign="top">– Second</td>
+            <td valign="top">– Plural</td>
+            <td valign="top">गच्छथ</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">5</td>
+            <td valign="top">Third</td>
+            <td valign="top">Singular</td>
+            <td valign="top">गच्छति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">6</td>
+            <td valign="top">– Third</td>
+            <td valign="top">– Plural</td>
+            <td valign="top">गच्छन्ति</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>As can be seen, in Sanskrit there is a good, very distinct correspondence between the pronoun and the verb. When we would say गच्छामि it is clear that the subject is pronoun of first person, singular, i.e. अहं So, in Sanskrit if we say गच्छामि
+      it is not at all necessary to say अहं !! The verb-form गच्छामि is structured to be the form for first person singular and hence structured for the subject to be अहं . That is why Sanskrit is called as a “structured” language. One can readily
+      appreciate the usefulness of such ‘structured’-ness of the language. It lends brevity and crispness. If it is not necessary to say अहं गच्छामि and if it is adequate to say just गच्छामि – saying only one word instead of two is fifty percent
+      shorter !</p>
+    <p>But in the structuring process, the Rishi’s thought it good and important to have the ‘number’-concept to be not just singular and plural, but singular, dual and plural. That applies both to pronouns and the verb-forms.</p>
+    <p align="center">Table 4-4 – Pronouns</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td valign="top">Person</td>
+            <td valign="top">Gender</td>
+            <td valign="top">Singular</td>
+            <td valign="top">Dual</td>
+            <td valign="top">Plural</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">First</td>
+            <td valign="top">All</td>
+            <td valign="top">अहम्</td>
+            <td valign="top">आवाम्</td>
+            <td valign="top">वयम्</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">Second</td>
+            <td valign="top">All</td>
+            <td valign="top">त्वम्</td>
+            <td valign="top">युवाम्</td>
+            <td valign="top">यूयम्</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">Third</td>
+            <td valign="top">Masculine</td>
+            <td valign="top">सः</td>
+            <td valign="top">तौ</td>
+            <td valign="top">ते</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">Third</td>
+            <td valign="top">Feminine</td>
+            <td valign="top">सा</td>
+            <td valign="top">ते</td>
+            <td valign="top">ताः</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">Third</td>
+            <td valign="top">Neuter</td>
+            <td valign="top">तत्</td>
+            <td valign="top">ते</td>
+            <td valign="top">तानि</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p align="center">Table 4-5 – Verb-forms</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td valign="top">Person</td>
+            <td valign="top">Singular</td>
+            <td valign="top">Dual</td>
+            <td valign="top">Plural</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">First</td>
+            <td valign="top">गच्छामि</td>
+            <td valign="top">गच्छावः</td>
+            <td valign="top">गच्छामः</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">Second</td>
+            <td valign="top">गच्छसि</td>
+            <td valign="top">गच्छथः</td>
+            <td valign="top">गच्छथ</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">
+              <p style="text-align:left;" align="center">Third</p>
+            </td>
+            <td valign="top">
+              <p style="text-align:left;" align="center">गच्छति</p>
+            </td>
+            <td valign="top">
+              <p style="text-align:left;" align="center">गच्छतः</p>
+            </td>
+            <td valign="top">
+              <p style="text-align:left;" align="center">गच्छन्ति</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>By using appropriate verb-form from Table 5 with the 15 pronoun-forms in Table 4, it is now possible to make 15 sentences.</p>
+    <p align="center">Table 4-6</p>
+    <p align="center">15 sentences</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">1</td>
+            <td valign="top">अहम् गच्छामि |</td>
+            <td valign="top">I go</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">2</td>
+            <td valign="top">आवां गच्छावः</td>
+            <td valign="top">We two go</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">3</td>
+            <td valign="top">वयं गच्छामः</td>
+            <td valign="top">We go</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">4</td>
+            <td valign="top">त्वं गच्छसि</td>
+            <td valign="top">You go</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">5</td>
+            <td valign="top">युवां गच्छथः</td>
+            <td valign="top">You two go</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">6</td>
+            <td valign="top">यूयं गच्छथ</td>
+            <td valign="top">You go</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">7</td>
+            <td valign="top">सः गच्छति</td>
+            <td valign="top">He goes</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">8</td>
+            <td valign="top">तौ गच्छतः</td>
+            <td valign="top">They two go</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">9</td>
+            <td valign="top">ते गच्छन्ति</td>
+            <td valign="top">They go</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">10</td>
+            <td valign="top">सा गच्छति</td>
+            <td valign="top">She goes</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">11</td>
+            <td valign="top">ते गच्छतः</td>
+            <td valign="top">They two go</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">12</td>
+            <td valign="top">ताः गच्छन्ति</td>
+            <td valign="top">They go</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">13</td>
+            <td valign="top">तत् गच्छति</td>
+            <td valign="top">It goes</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">14</td>
+            <td valign="top">ते गच्छतः</td>
+            <td valign="top">They two go</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">15</td>
+            <td valign="top">तानि गच्छन्ति</td>
+            <td valign="top">They go</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Given this basic structure of 15 sentences, we can take 9 verb-forms of any verbal root and make 15 sentences for each verbal root.</p>
+    <p>For the Verbal root वद् &nbsp;(= to say, to speak) the verbal forms are</p>
+    <p align="center">Table 4-7</p>
+    <p align="center">Verbal forms for वद्</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td valign="top">Person</td>
+            <td valign="top">Singular</td>
+            <td valign="top">Dual</td>
+            <td valign="top">Plural</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">First</td>
+            <td valign="top">वदामि</td>
+            <td valign="top">वदावः</td>
+            <td valign="top">वदामः</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top">Second</td>
+            <td valign="top">वदसि</td>
+            <td valign="top">वदथः</td>
+            <td valign="top">वदथ</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top">Third</td>
+            <td valign="top">वदति</td>
+            <td valign="top">वदतः</td>
+            <td valign="top">वदन्ति</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>By the way, one would not find in dictionary the words<br>
+      गच्छामि गच्छावः गच्छामः गच्छसि गच्छथः गच्छथ &nbsp;गच्छति गच्छतः गच्छन्ति<br>
+      वदामि वदावः वदामः वदसि वदथः वदथ वदति वदतः वदन्ति<br>
+      अहम् आवाम् वयम्<br>
+      त्वम् युवाम् यूयम्<br>
+      सः तौ ते<br>
+      सा ते ताः<br>
+      तत् ते तानि<br>
+      These are all derived forms, derived from root words. For example,<br>
+      वदामि वदावः वदामः वदसि वदथः वदथ वदति वदतः वदन्ति are derived from the verbal root वद्, i.e. from धातु वद्. We can find वद् in the dictionary. This is a huge difference between dictionary of Sanskrit from dictionary of other languages. Of course
+      in English also we do not look for words like me, my, us, our, your, him, his, her, its, them, their, etc. Yet there is a difference and the difference is huge, because number of words which can be derived from a root word is very large. We
+      have just seen 9 words derived from the verbal root वद्. This is not even the tip of an iceberg. These 9 words are of present tense. There will be more words in past and future tenses and in imperative mood and in other moods as obtained in
+      English by using auxiliaries such as shall, will, should, would, can, could, may, might, must, ‘ought to’. In Sanskrit the emphasis is on deriving a word so that it can stand by itself. That is the basic logic of ‘structuring’.</p>
+    <p>By the way, the verbal forms गच्छामि गच्छावः गच्छामः गच्छसि गच्छथः गच्छथ &nbsp;गच्छति गच्छतः गच्छन्ति are derived from the verbal root गम् (= to go). Technical term in&nbsp;<span style="color:var(--color-text);">Sanskrit </span><span
+        style="color:var(--color-text);">for verbal root is धातु. </span><span style="color:var(--color-text);">Sanskrit word for verbal form is क्रियापदम् or तिङन्तम्&nbsp;</span></p>
+    <p>It is also to be noted that the words अहं आवां वयं त्वं युवां यूयं are better written as अहम् आवाम् वयम् त्वम् युवाम् यूयम् with the ending म् clearly visible, when the words are stand-alone or at the end of a line of a poem or at the end of a
+      sentence. This in fact is the rule.</p>
+    <p>Compiled below are verbal forms of some commonplace verbal roots धातु-s.</p>
+    <p align="center">Table 4-8</p>
+    <p align="center">verbal forms of some commonplace verbal roots धातु-s</p>
+    <div align="center">
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="background-color: #FF9455;font-weight: bold;color: white;">
+            <td valign="top" width="38">No.</td>
+            <td valign="top" width="131">Verbal root धातु</td>
+            <td valign="top" width="78">Meaning</td>
+            <td valign="top" width="288">Verbal forms</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top" width="38">1</td>
+            <td valign="top" width="131">गम्</td>
+            <td valign="top" width="78">to go</td>
+            <td valign="top" width="288">गच्छामि गच्छावः गच्छामः<br>
+              गच्छसि गच्छथः गच्छथ<br>
+              गच्छति गच्छतः गच्छन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top" width="38">2</td>
+            <td valign="top" width="131">वद्</td>
+            <td valign="top" width="78">to say, to speak</td>
+            <td valign="top" width="288">वदामि वदावः वदामः<br>
+              वदसि वदथः वदथ<br>
+              वदति वदतः वदन्ति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top" width="38">3</td>
+            <td valign="top" width="131">आ + गम्</td>
+            <td valign="top" width="78">to come</td>
+            <td valign="top" width="288">आगच्छामि आगच्छावः आगच्छामः<br>
+              आगच्छसि आगच्छथः आगच्छथ<br>
+              आगच्छति आगच्छतः आगच्छन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top" width="38">4</td>
+            <td valign="top" width="131">प्रति &nbsp;+ गम्</td>
+            <td valign="top" width="78">to go towards, to go unto</td>
+            <td valign="top" width="288">प्रतिगच्छामि प्रतिगच्छावः प्रतिगच्छामः<br>
+              प्रतिगच्छसि प्रतिगच्छथः प्रतिगच्छथ<br>
+              प्रतिगच्छति प्रतिगच्छतः प्रतिगच्छन्ति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top" width="38">5</td>
+            <td valign="top" width="131">प्रति + आ + गम्</td>
+            <td valign="top" width="78">to return</td>
+            <td valign="top" width="288">प्रत्यागच्छामि प्रत्यागच्छावः प्रत्यागच्छामः<br>
+              प्रत्यागच्छसि प्रत्यागच्छथः प्रत्यागच्छथ<br>
+              प्रत्यागच्छति प्रत्यागच्छतः प्रत्यागच्छन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top" width="38">6</td>
+            <td valign="top" width="131">कृ</td>
+            <td valign="top" width="78">to do</td>
+            <td valign="top" width="288">करोमि कुर्वः कुर्मः<br>
+              करोषि कुरुथः कुरुथ<br>
+              करोति कुरुतः कुर्वन्ति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top" width="38">7</td>
+            <td valign="top" width="131">खाद्</td>
+            <td valign="top" width="78">to eat</td>
+            <td valign="top" width="288">खादामि खादावः खादामः<br>
+              खादसि खादथः खादथ<br>
+              खादति खादतः खादन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top" width="38">8</td>
+            <td valign="top" width="131">पा</td>
+            <td valign="top" width="78">to drink</td>
+            <td valign="top" width="288">पिबामि पिबावः पिबामः<br>
+              पिबसि पिबथः पिबथ<br>
+              पिबति पिबतः पिबन्ति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top" width="38">9</td>
+            <td valign="top" width="131">अस्</td>
+            <td valign="top" width="78">to be</td>
+            <td valign="top" width="288">अस्मि स्वः स्मः<br>
+              असि स्थः स्थ<br>
+              अस्ति स्तः सन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top" width="38">10</td>
+            <td valign="top" width="131">भू</td>
+            <td valign="top" width="78">to be, to become, to be present</td>
+            <td valign="top" width="288">भवामि भवावः भवामः<br>
+              भवसि भवथः भवथ<br>
+              भवति भवतः भवन्ति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top" width="38">11</td>
+            <td valign="top" width="131">उप + विश्</td>
+            <td valign="top" width="78">to sit</td>
+            <td valign="top" width="288">उपविशामि उपविशावः उपविशामः<br>
+              उपविशसि उपविशथः उपविशथ<br>
+              उपविशति उपविशतः उपविशन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top" width="38">12</td>
+            <td valign="top" width="131">स्था</td>
+            <td valign="top" width="78">to stand, to halt, to stop</td>
+            <td valign="top" width="288">तिष्ठामि तिष्ठावः तिष्ठामः<br>
+              तिष्ठसि तिष्ठथः तिष्ठथ<br>
+              तिष्ठति तिष्ठतः तिष्ठन्ति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top" width="38">13</td>
+            <td valign="top" width="131">उत् + स्था</td>
+            <td valign="top" width="78">to stand up</td>
+            <td valign="top" width="288">उत्तिष्ठामि उत्तिष्ठावः उत्तिष्ठामः<br>
+              उत्तिष्ठसि उत्तिष्ठथः उत्तिष्ठथ<br>
+              उत्तिष्ठति उत्तिष्ठतः उत्तिष्ठन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top" width="38">14</td>
+            <td valign="top" width="131">दा</td>
+            <td valign="top" width="78">to give</td>
+            <td valign="top" width="288">ददामि दद्वः दद्मः<br>
+              ददासि दत्थः दत्थ<br>
+              ददाति दत्तः ददति</td>
+          </tr>
+          <tr style="background-color: #fff8cd;">
+            <td valign="top" width="38">15</td>
+            <td valign="top" width="131">ग्रह् or गृह्</td>
+            <td valign="top" width="78">to take, to receive, to accommodate</td>
+            <td valign="top" width="288">गृह्णामि गृह्णीवः गृह्णीमः<br>
+              गृह्णासि गृह्णीथः गृह्णीथ<br>
+              गृह्णाति गृह्णीतः गृह्णन्ति</td>
+          </tr>
+          <tr style="background-color: #f1e189;">
+            <td valign="top" width="38">16</td>
+            <td valign="top" width="131">ज्ञा</td>
+            <td valign="top" width="78">to know, to become aware</td>
+            <td valign="top" width="288">जानामि जानीवः जानीमः<br>
+              जानासि जानीथः जानीथ<br>
+              जानाति जानीतः जानन्ति</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>All the above verbal forms are of धातु-s which are of a type or class known as परस्मैपदी.</p>
+    <p>Other type or class of धातु-s is आत्मनेपदी.</p>
+    <p>There are also धातु-s which can have verbal forms both of परस्मैपदी and आत्मनेपदी types. Such धातु-s are called as उभयपदी.</p>
+    <p>In above Table 8, it can be seen that the verbal root धातु for ‘to go’ is गम्. The verbal root धातु for ‘to come’ is आ + गम् and that for ‘to return’ is प्रति + आ + गम्. We can say that the basic verbal root is गम्. Then verbal roots आ + गम्
+      and प्रति + आ + गम् are secondary or tertiary verbal roots, derived using prefixes such as आ and प्रति + आ. The prefixes are called as उपसर्ग. Prefixes are common in English also, e.g. inscribe, describe, subscribe, prescribe, circumscribe.
+      Interestingly the prefixes cause the meaning to undergo a radical change. There is a good verse which summarizes such radical change in meaning caused by उपसर्ग-s. Will it be good to know that verse ! The verse, श्लोक is –</p>
+    <p align="center">उपसर्गेण धात्वर्थो बलादन्यत्र नीयते |</p>
+    <p align="center">विहाराहार-संहार-प्रहार-परिहारवत् ||</p>
+    <p>Prefixes cause the meaning of the verbal root to undergo a radical change as it happens in विहार-आहार-संहार-प्रहार-परिहार.</p>
+    <p>It should be also noted that though all धातु-s in Table 8 are of परस्मैपदी type and have some similarity in the pattern of formation of verb-forms, for some धातु-s, in the formation of verb-forms, there are peculiarities e.g.</p>
+    <ul>
+      <li>गम् takes the form गच्छामि,</li>
+      <li>कृ takes the forms करोमि कुर्वः कुर्मः</li>
+      <li>पा takes the forms पिबामि पिबावः पिबामः</li>
+      <li>अस् takes the forms अस्मि स्वः स्मः</li>
+      <li>स्था takes the forms तिष्ठामि तिष्ठावः तिष्ठामः</li>
+      <li>दा takes the forms ददामि दद्वः दद्मः</li>
+      <li>ग्रह् or गृह् takes the forms गृह्णामि गृह्णीवः गृह्णीमः</li>
+      <li>ज्ञा takes the forms जानामि जानीवः जानीमः</li>
+    </ul>
+    <p>These peculiarities also have rules and quite often “Exceptions prove the rule” is also an accepted rule ! It is good to be curious but not good to be over-inquisitive. For the beginning, it would be good to accept the things as given and
+      practice with them. More the practice, even the peculiarities will become natural.</p>
+    <p>When a child learns its mother tongue, it acquires the tongue by being engulfed in that environment 24×7. If such 24×7 environment is not available for learning a language such as Sanskrit, the option then is to make devoted intense exercise.
+      Luckily, There is a beautiful easy rhythm with everything in Sanskrit. In Table 8, all the nine forms of each verb are set in three lines of three forms in each line. They can be memorized and should be memorized, so intensely that they would
+      come natural when one has to use them and make sentences. With 15 sentences illustrated for the verb गम्, it is possible to practice making 240 sentences from the 16 verbs !!! Why not do that as self-study exercises स्वाध्याय-s to practice this
+      lesson ?</p>
+    <p>There would be many ways to practice parsing the 240 sentences. For example, if I take a sentence ते कुर्वन्ति I should be able to explain the grammar of both these words.</p>
+    <ul>
+      <li>कुर्वन्ति = धातु कृ (to do), present tense, third person, plural</li>
+      <li>ते = pronoun of masculine,&nbsp;third person, plural.</li>
+    </ul>
+    <p>Now, among the 15 pronouns, the word ते has three connotations – (a) masculine,&nbsp;third person, plural (b) neuter, third person, dual (c) feminine, third person, dual. If so, is the grammar written above as “ते = pronoun of
+      masculine,&nbsp;third person, plural” correct ? It is correct, because the verb form कुर्वन्ति is plural.</p>
+    <p>As practice in parsing, we can exercise with this sentence ते कुर्वन्ति to transform it, replacing ते by the other 14 pronouns and say, to what verb-forms the word कुर्वन्ति will change to.</p>
+  </div><!-- .entry-content -->
+
+</article>
+
+<br><br><br>
+
+<ul class="table-pagination">
+  <li><a href="lesson3">Prev</a></li>
+  <li><a href="lesson1">1</a></li>
+  <li><a href="#">...</a></li>
+  <li class="active"><a href="#">4</a></li>
+  <li><a href="#">...</a></li>
+  <li><a href="lesson6">6</a></li>
+  <li><a href="lesson5">Next</a></li>
+</ul>
+
+<div id="addnote" style="transition: margin-right .5s; margin-right:0%;">
+  <button type="button" class="btn btn-secondary btn-large rounded-left" style="position: fixed;
+    top: 50%;
+    right: 0%;
+    height: 250px;
+    width: 75px;
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);" name="button" onclick="openNavNotes()">A <br>D <br>D<br><br>N <br>O <br>T <br>E <br>S</button>
+
+</div>
+
+<div id="addnotetext" style="height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  right: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s;">
+
+  <button type="button" class="btn btn-secondary btn-large rounded" style="position: static;
+  color: black;
+    top: 50%;
+    height: 50px;
+    width: 250px;
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);" name="button" onclick="closeNavNotes()">ADD NOTES</button>
+    <form method="post">
+      {% csrf_token %}
+    <label style="color: white; text-align: center;">Add a note here:</label>
+    <br>
+    <textarea name="note" rows="8" cols="80" style="width: 240px; height: 300px; margin: 0px 5px;"></textarea>
+    <input type="submit" onclick="" name="" value="Submit" style="height: 30px; width: 240px; margin: 0px 5px;" id="submitNote">
+  </form>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</script>
+{%endblock%}
