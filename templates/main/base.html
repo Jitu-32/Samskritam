@@ -1,89 +1,133 @@
-{% load static %} 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  <style>
 
-    <title>Samskritam</title>
-    
+    .mastbk {
+      height: 0;
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(10, 10, 10, 0);
+      overflow-y: scroll;
+      transition: 0.5s;
+      padding-bottom: 0px;
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'main/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    .mastbk a {
+      padding: 8px 8px 8px 8px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
 
-<!--
+    .mastbk a:hover {
+      color: #f1f1f1;
+    }
+
+    .mastbk .closebtn {
+      position: absolute;
+      bottom: 190px;
+      right: 160px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .mastbk {
+        padding-bottom: 15px;
+      }
+
+      .mastbk a {
+        font-size: 18px;
+      }
+    }
+  </style>
+  <title>Samskritam</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'main/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!--
 Ramayana CSS Template
 https://templatemo.com/tm-529-ramayana
 -->
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{% static 'main/assets/css/fontawesome.css' %}">
-    <link rel="stylesheet" href="{% static 'main/assets/css/templatemo-style.css' %}">
-    <link rel="stylesheet" href="{% static 'main/assets/css/owl.css' %}">
-    
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="{% static 'main/assets/css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'main/assets/css/templatemo-style.css' %}">
+  <link rel="stylesheet" href="{% static 'main/assets/css/owl.css' %}">
+  <link rel="stylesheet" href="{% static 'main/assets/css/style.css' %}">
+</head>
 
-  </head>
-
-  {%if login_error%}
+{%if login_error%}
 <script>
-    alert('{{ login_error }}');
-    </script>
- {%endif%}
+  alert('{{ login_error }}');
+</script>
+{%endif%}
 
 <body class="is-preload">
 
-    <!-- Wrapper -->
-    <div id="wrapper">
+  <!-- Wrapper -->
+  <div id="wrapper">
 
-      <!-- Main -->
-        <div id="main">
-          <div class="inner">
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
 
-            <!-- Header -->
-            <header id="header">
-              <div class="logo">
-                <a href="{% url 'home' %}">Samskritam</a>
-              </div>
-            </header>
-
-            <!-- Banner -->
-            
-
-            <!-- Services -->
-            
-            {% block content %}
-            {% endblock %}
-
-
-
+        <!-- Header -->
+        <header id="header">
+          <div class="logo">
+            <a href="{% url 'home' %}">Samskritam</a>
           </div>
-        </div>
+        </header>
 
-      <!-- Sidebar -->
-        <div id="sidebar">
+        <!-- Banner -->
 
-          <div class="inner">
 
-            <!-- Search Box -->
-            <section id="search" class="alt">
-              <form method="get" action="#">
-                <input type="text" name="search" id="search" placeholder="Search..." />
-              </form>
-            </section>
+        <!-- Services -->
 
-            
-              
-            <!-- Menu -->
-            <nav id="menu">
-              <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'play' %}">Play</a></li>
-                <!-- <li>
+        {% block content %}
+        {% endblock %}
+
+
+
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+
+      <div class="inner">
+
+        <!-- Search Box -->
+        <section id="search" class="alt">
+          <form method="get" action="#">
+            <input type="text" name="search" id="search" placeholder="Search..." />
+          </form>
+        </section>
+
+
+
+        <!-- Menu -->
+        <nav id="menu">
+          <ul>
+            <li> <button type="button" name="button" onclick="openNav()">keyboard</button></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'play' %}">Play</a></li>
+            <!-- <li>
                   <span class="opener">Play</span>
                   <ul>
                     <li><a href="#">First Sub Menu</a></li>
@@ -91,118 +135,337 @@ https://templatemo.com/tm-529-ramayana
                     <li><a href="#">Third Sub Menu</a></li>
                   </ul>
                 </li> -->
-                  <li>
-                  <span class="opener">Learn</span>
-                  <ul>
-                    <li><a href="#">First Sub Menu</a></li>
-                    <li><a href="#">Second Sub Menu</a></li>
-                    <li><a href="#">Third Sub Menu</a></li>
-                  </ul>
-                </li>
-                <li><a href="{% url 'compete' %}">Compete</a></li>
-                {% if expert %}
-                <li><a href="{% url 'my_competitions' %}">My Competitions</a></li>
-                {%endif%}
-                <li><a href="#">Classes</a></li>
-                <li><a href="#">About Us</a></li>
-                {%if not user.is_authenticated%}
-                <li><a href="{% url 'signup_view' %}">Sign Up</a></li>
-                {%endif%}
+            <li>
+              <span class="opener">Learn</span>
+              <ul>
+                <li><a href="#">First Sub Menu</a></li>
+                <li><a href="#">Second Sub Menu</a></li>
+                <li><a href="#">Third Sub Menu</a></li>
               </ul>
-            </nav>
-
-            <br>
-            <!-- <div class="featured-posts"> -->
-            
-            <!-- </div> -->
-
-            {% if user.is_authenticated %}
-
-            <!-- <div class="row"> -->
-            <div class="heading">
-                <h4 style="color: white;">Hi {{user}}</h4>
-            </div>
-            <br>
-            <div class="heading">
-                <a href="{% url 'logout_view' %}"><button>Log Out</button></a>
-            </div>
-          <!-- </div> -->
-
-            {% else %}
-
-            <div class="heading">
-                <h4 style="color: white;">Log In</h4>
-              </div>
-            <section id="search" class="alt">
-              <form method="POST">
-                {% csrf_token %}
-                <input type="text" name="username" id="username" placeholder="Username" />
-                <input type="password" name="password" id="password" placeholder="Password" />
-                <center>          
-                <button type="submit" name="submit"> Submit</button>                
-                </center>
-              </form>
-            </section>
-            <br><br><br>
-            <!-- <a href="{% url 'signup_view' %}"><button>Sign Up</button></a> -->
-
+            </li>
+            <li><a href="{% url 'compete' %}">Compete</a></li>
+            {% if expert %}
+            <li><a href="{% url 'my_competitions' %}">My Competitions</a></li>
             {%endif%}
+            <li><a href="#">Classes</a></li>
+            <li><a href="#">About Us</a></li>
+            {%if not user.is_authenticated%}
+            <li><a href="{% url 'signup_view' %}">Sign Up</a></li>
+            {%endif%}
+          </ul>
+        </nav>
 
-            <!-- Featured Posts -->
-            <div class="featured-posts">
-              <div class="heading">
-                <h2>Featured Posts</h2>
+        <br>
+        <!-- <div class="featured-posts"> -->
+
+        <!-- </div> -->
+
+        {% if user.is_authenticated %}
+
+        <!-- <div class="row"> -->
+        <div class="heading">
+          <h4 style="color: white;">Hi {{user}}</h4>
+        </div>
+        <br>
+        <div class="heading">
+          <a href="{% url 'logout_view' %}"><button>Log Out</button></a>
+        </div>
+        <!-- </div> -->
+
+        {% else %}
+
+        <div class="heading">
+          <h4 style="color: white;">Log In</h4>
+        </div>
+        <section id="search" class="alt">
+          <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="Username" />
+            <input type="password" name="password" id="password" placeholder="Password" />
+            <center>
+              <button type="submit" name="submit"> Submit</button>
+            </center>
+          </form>
+        </section>
+        <br><br><br>
+        <!-- <a href="{% url 'signup_view' %}"><button>Sign Up</button></a> -->
+
+        {%endif%}
+
+        <!-- Featured Posts -->
+        <div class="featured-posts">
+          <div class="heading">
+            <h2>Featured Posts</h2>
+          </div>
+          <div class="owl-carousel owl-theme">
+            <a href="#">
+              <div class="featured-item">
+                <img src="{% static 'assets/images/featured_post_01.jpg' %}" alt="featured one">
+                <p>Aliquam egestas convallis eros sed gravida. Curabitur consequat sit.</p>
               </div>
-              <div class="owl-carousel owl-theme">
-                <a href="#">
-                  <div class="featured-item">
-                    <img src="{% static 'assets/images/featured_post_01.jpg' %}" alt="featured one">
-                    <p>Aliquam egestas convallis eros sed gravida. Curabitur consequat sit.</p>
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="featured-item">
-                    <img src="{% static 'assets/images/featured_post_01.jpg' %}" alt="featured two">
-                    <p>Donec a scelerisque massa. Aliquam non iaculis quam. Duis arcu turpis.</p>
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="featured-item">
-                    <img src="{% static 'assets/images/featured_post_01.jpg' %}" alt="featured three">
-                    <p>Suspendisse ac convallis urna, vitae luctus ante. Donec sit amet.</p>
-                  </div>
-                </a>
+            </a>
+            <a href="#">
+              <div class="featured-item">
+                <img src="{% static 'assets/images/featured_post_01.jpg' %}" alt="featured two">
+                <p>Donec a scelerisque massa. Aliquam non iaculis quam. Duis arcu turpis.</p>
               </div>
-            </div>
-
-            <!-- Footer -->
-            <footer id="footer">
-              <p class="copyright">Copyright &copy; 2021 Samskritam
-              <br>Designed by <a rel="nofollow" href="https://www.facebook.com/templatemo">Template Mo</a></p>
-            </footer>
-
-            
-
+            </a>
+            <a href="#">
+              <div class="featured-item">
+                <img src="{% static 'assets/images/featured_post_01.jpg' %}" alt="featured three">
+                <p>Suspendisse ac convallis urna, vitae luctus ante. Donec sit amet.</p>
+              </div>
+            </a>
           </div>
         </div>
 
+        <!-- Footer -->
+        <footer id="footer">
+          <p class="copyright">Copyright &copy; 2021 Samskritam
+            <br>Designed by <a rel="nofollow" href="https://www.facebook.com/templatemo">Template Mo</a>
+          </p>
+        </footer>
+
+
+
+      </div>
     </div>
-    
+
+  </div>
+  <div id="mymastbk" class="mastbk">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <!-- Navigation -->
+    <div class="keyboard">
+      <ul class="keyrow1">
+        <li>
+          <div class="key"> ऒ <span>~</span><br> ॊ <span>q</span></div>
+        </li>
+        <li>
+          <div class="key"> ऍ <span>!</span><br> 1 <span>1</span></div>
+        </li>
+        <li>
+          <div class="key"> ॅ <span>@</span><br> 2 <span>2</span></div>
+        </li>
+        <li>
+          <div class="key"> ्र <span>#</span><br> 3 <span>3</span></div>
+        </li>
+        <li>
+          <div class="key"> र् <span>$</span><br> 4 <span>4</span></div>
+        </li>
+        <li>
+          <div class="key"> ज्ञ <span>%</span><br> 5 <span>5</span></div>
+        </li>
+        <li>
+          <div class="key"> त्र <span>^</span><br> 6 <span>6</span></div>
+        </li>
+        <li>
+          <div class="key"> क्ष <span>&</span><br> 7 <span>7</span></div>
+        </li>
+        <li>
+          <div class="key"> श्र <span>*</span><br> 8 <span>8</span></div>
+        </li>
+        <li>
+          <div class="key"> ( <span>(</span><br> 9 <span>9</span></div>
+        </li>
+        <li>
+          <div class="key"> ) <span>)</span><br> 0 <span>0</span></div>
+        </li>
+        <li>
+          <div class="key"> ः <span>_</span><br> - <span>-</span></div>
+        </li>
+        <li>
+          <div class=" "> ऋ <span>+</span><br> ॉ <span>=</span></div>
+        </li>
+        <li>
+          <div class="backspance ls1"> Backspace <br> &nbsp; </div>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+      <ul class="keyrow2">
+        <li>
+          <div class="tab ls1"> Tab<br> &nbsp; </div>
+        </li>
+        <li>
+          <div class="key"> औ <span>Q</span><br> ौ <span>q</span></div>
+        </li>
+        <li>
+          <div class="key"> ऐ <span>W</span><br> ै <span>w</span></div>
+        </li>
+        <li>
+          <div class="key"> आ <span>E</span><br> ा <span>e</span></div>
+        </li>
+        <li>
+          <div class="key"> ई <span>R</span><br> ी <span>r</span></div>
+        </li>
+        <li>
+          <div class="key"> ऊ <span>T</span><br> ू <span>t</span></div>
+        </li>
+        <li>
+          <div class="key"> भ <span>Y</span><br> ब <span>y</span></div>
+        </li>
+        <li>
+          <div class="key"> ङ <span>U</span><br> ह <span>u</span></div>
+        </li>
+        <li>
+          <div class="key"> घ <span>I</span><br> ग <span>i</span></div>
+        </li>
+        <li>
+          <div class="key"> ध <span>O</span><br> द <span>o</span></div>
+        </li>
+        <li>
+          <div class="key"> झ <span>P</span><br> ज <span>p</span></div>
+        </li>
+        <li>
+          <div class="key"> ढ <span>{</span><br> ड <span>[</span></div>
+        </li>
+        <li>
+          <div class="key"> ञ <span>}</span><br> ़ <span>]</span></div>
+        </li>
+        <li>
+          <div class="key-or"> ऑ <span>|</span><br> ॉ <span>\</span></div>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+      <ul class="keyrow3">
+        <li>
+          <div class="caplock ls1"> Caps Lock <br> &nbsp; </div>
+        </li>
+        <li>
+          <div class="key"> ओ <span>A</span><br> ो <span>a</span></div>
+        </li>
+        <li>
+          <div class="key"> ए <span>S</span><br> े <span>s</span></div>
+        </li>
+        <li>
+          <div class="key"> अ <span>D</span><br> ् <span>d</span></div>
+        </li>
+        <li>
+          <div class="key"> इ <span>F</span><br> ि <span>f</span></div>
+        </li>
+        <li>
+          <div class="key"> उ <span>G</span><br> ु <span>g</span></div>
+        </li>
+        <li>
+          <div class="key"> फ <span>H</span><br> प <span>h</span></div>
+        </li>
+        <li>
+          <div class="key"> ऱ <span>J</span><br> र <span>j</span></div>
+        </li>
+        <li>
+          <div class="key"> ख <span>K</span><br> क <span>k</span></div>
+        </li>
+        <li>
+          <div class="key"> थ <span>L</span><br> त <span>l</span></div>
+        </li>
+        <li>
+          <div class="key"> छ <span>:</span><br> च <span>;</span></div>
+        </li>
+        <li>
+          <div class="key"> ठ <span>"</span><br> ट <span>'</span></div>
+        </li>
+        <li>
+          <div class="enter ls1"><span>Enter</span><br> &nbsp; </div>
+        </li>
+
+      </ul>
+      <div class="clearfix"></div>
+      <ul class="keyrow4">
+        <li>
+          <div class="shift ls1">Shift<br> &nbsp; </div>
+        </li>
+        <li>
+          <div class="key"> ऎ <span>Z</span><br> ॆ <span>z</span></div>
+        </li>
+        <li>
+          <div class="key"> ँ <span>X</span><br> ं <span>x</span></div>
+        </li>
+        <li>
+          <div class="key"> ण <span>C</span><br> म <span>c</span></div>
+        </li>
+        <li>
+          <div class="key"> ऩ <span>V</span><br> न <span>v</span></div>
+        </li>
+        <li>
+          <div class="key"> ऴ <span>B</span><br> व <span>b</span></div>
+        </li>
+        <li>
+          <div class="key"> ळ <span>N</span><br> ल <span>n</span></div>
+        </li>
+        <li>
+          <div class="key"> श <span>M</span><br> स <span>m</span></div>
+        </li>
+        <li>
+          <div class="key"> ष <span>
+              < </span><br> , <span>,</span></div>
+        </li>
+        <li>
+          <div class="key"> । <span>></span><br> . <span>.</span></div>
+        </li>
+        <li>
+          <div class="key"> य़ <span>?</span><br> य <span>/</span></div>
+        </li>
+        <li>
+          <div class="shift ls1"> <span>Shift</span><br>&nbsp; </div>
+        </li>
+
+      </ul>
+      <div class="clearfix"></div>
+      <ul class="keyrow5 text-center">
+        <li>
+          <div class="ctrl ls1">Ctrl</div>
+        </li>
+        <li>
+          <div class="alt ls1"> Alt </div>
+        </li>
+        <li>
+          <div class="space ls1"> Space </div>
+        </li>
+        <li>
+          <div class="alt ls1"> Alt </div>
+        </li>
+        <li>
+          <div class="ctrl ls1"> Ctrl </div>
+        </li>
+
+      </ul>
+      <div class="clearfix"></div>
+
+    </div>
+
+    <!-- Footer -->
+
+
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+    <!-- jQuery -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script> -->
+    <!-- <script src="js/lessions.js"></script> -->
+    <!-- <script src="js/app.js"></script> -->
+  </div>
+
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'main/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'main/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'main/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'main/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-    <script src="{% static 'main/assets/js/browser.min.js' %}"></script>
-    <script src="{% static 'main/assets/js/breakpoints.min.js' %}"></script>
-    <script src="{% static 'main/assets/js/transition.js' %}"></script>
-    <script src="{% static 'main/assets/js/owl-carousel.js' %}"></script>
-    <script src="{% static 'main/assets/js/custom.js' %}"></script>
+  <script src="{% static 'main/assets/js/browser.min.js' %}"></script>
+  <script src="{% static 'main/assets/js/breakpoints.min.js' %}"></script>
+  <script src="{% static 'main/assets/js/transition.js' %}"></script>
+  <script src="{% static 'main/assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'main/assets/js/custom.js' %}"></script>
+  <script>
+    function openNav() {
+      document.getElementById("mymastbk").style.height = "250px";
+      document.getElementById("mymastbk").style.paddingBottom = "10px";
+      document.getElementById("main").style.paddingBottom="250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mymastbk").style.height = "0px";
+      document.getElementById("main").style.paddingBottom="0px";
+    }
+  </script>
 </body>
 
 
-  </body>
-
 </html>
-
-
