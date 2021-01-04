@@ -201,11 +201,11 @@ def competition_questions(request,pk):
                 if i[0]=='m':
                     # MCQ
                     option = MCQ_option.objects.get(pk=int(i[3:]))
-                    response = MCQ_student_response.objects.create(question = option.question, student = request.user, response = option)
+                    response = MCQ_student_response.objects.create(contest = competition,question = option.question, student = request.user, response = option)
                 elif i[0]=='f':
                     #FIB
                     question = FIB_question.objects.get(pk=int(i[3:]))
-                    response = FIB_student_response.objects.create(question = question, student = request.user, response = request.POST[i])
+                    response = FIB_student_response.objects.create(contest = competition,question = question, student = request.user, response = request.POST[i])
                 else:
                     #pdf  
                     print(i[3:])    
@@ -358,9 +358,11 @@ def competition_leaderboard(request,pk):
         if Expert_data.objects.filter(user = request.user):
             expert = request.user        
 
-    competition = Competition.objects.get(pk=pk)        
+    competition = Competition.objects.get(pk=pk)
+    student_attempts = Attempted_contests.objects.filter(contest=competition).order_by('marks').reverse()
 
-    return render(request,'main/competition_leaderboard.html',{"expert":expert,"competition":competition})        
+
+    return render(request,'main/competition_leaderboard.html',{"expert":expert,"student_attempts":student_attempts,"competition":competition})        
 
 
 def my_competition_responses(request,pk):
@@ -407,8 +409,33 @@ def my_competition_student_response(request,pk,student_id):
 
     pdf_questions = Pdf_question.objects.filter(contest=competition)
 
+    marks_obt = 0
+    mcq_responses = MCQ_student_response.objects.filter(contest=competition,student = student)
+    for i in mcq_responses:
+        if i.response.correct:
+            marks_obt+=1
+
+    if request.method=='POST':
+        for i in request.POST.keys():
+            if i[0]=='m':
+                # MCQ
+                response = FIB_student_response.objects.get(pk=int(i[3:]))
+                response.marks = int(request.POST[i])
+                print(request.POST[i])
+                response.save()
+
+            student_attempt = Attempted_contests.objects.get(contest=competition,student=student)
+            
+
+        for i in fib_responses:
+            marks_obt+=i.marks
+
+        student_attempt.marks = marks_obt
+        student_attempt.evaluated = True
+        student_attempt.save()    
+        return(redirect(my_competition_responses,competition.pk))
     
-    return render(request,'main/my_competition_student_response.html',{"expert":expert,"competition":competition,"fib_responses":fib_responses})    
+    return render(request,'main/my_competition_student_response.html',{"expert":expert,"marks_obt":marks_obt,"student":student,"competition":competition,"fib_responses":fib_responses})    
 
 
 def play(request):

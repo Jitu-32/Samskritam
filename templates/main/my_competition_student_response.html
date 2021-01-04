@@ -18,7 +18,7 @@
                         </div>
                       </div>
                       <div class="col-md-4">
-                        <div class="filled-rectangle-button">
+                        <div class="border-rectangle-button">
                           <a href="{% url 'my_competition_questions' pk=competition.pk %}">Questions</a>
                         </div>
                       </div>
@@ -39,11 +39,15 @@
  {%endif%}
 
 
-            {% if not answered %}
-            <section class="forms">
+            
+            <section class="forms" style="margin-top: 40px ">
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-12">
+
+                    <h2>{{student}}'s Responses</h2>
+
+                    <br> <br>
                                
                     <form id="contact" action="" method="post">
                       {% csrf_token %}
@@ -54,7 +58,7 @@
                         <br>
                         
 
-                       Marks Obtained in MCQ questions = _____
+                       Marks Obtained in MCQ questions = {{marks_obt}}
 
                         <hr>
                         
@@ -67,16 +71,21 @@
 
                          
 
-                        <p style="font-size: 20px;color: black;"><b>{{forloop.counter}}.</b></p>
-                        <br>
+                        <p style="font-size: 20px;color: black;"><b>{{forloop.counter}}. {{fib_response.question.question}}</b></p>
+                        
+                        <b>Student Response: </b> &nbsp;
 
-                        <div class="col-12">
-                          <textarea name="fib{{fib_question.pk}}" id="fib{{fib_question.pk}}" placeholder="Enter your answer here" rows="6">{{fib_response.question}}</textarea>
+                        {{fib_response.response}} <br><br>
+                        
+
+                        <div class="col-12 row">
+                         Marks assigned:
+                          <input type="text" name="mar{{fib_response.pk}}" placeholder="Enter the marks here" value="{{fib_response.marks}}" />
                         </div>
                         {% endfor %}
 
                         <div class="col-md-12">
-                          <button type="submit" id="form-submit" class="button">Publish Quiz</button>
+                          <button type="submit" id="form-submit" class="button">Mark as evaluated</button>
                         </div>
 
                       <!-- </div> -->
@@ -86,10 +95,6 @@
                 </div>
               </div>
             </section>
-            {% else %}
-
-            <h3> You have already attempted this contest !</h3>
-
-            {%endif%}
+            
       
 {%endblock%}
