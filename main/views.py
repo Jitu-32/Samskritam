@@ -459,3 +459,6 @@ def scramble(request):
 
 
     return render(request,'main/game/a.html')
+
+def test(request):
+    return render(request,'main/test.html')

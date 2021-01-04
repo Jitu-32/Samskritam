@@ -24,5 +24,5 @@ urlpatterns = [
 	path('play/memorygame',views.memorygame,name="memorygame") ,
 	path('play/scramble_desc',views.scramble_desc,name="scramble_desc") ,
 	path('play/scramble',views.scramble,name="scramble") ,
-	# path('test/',views.test,name="test"),
+	path('test/',views.test,name="test"),
 ]
