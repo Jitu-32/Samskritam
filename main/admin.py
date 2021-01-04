@@ -19,4 +19,3 @@ admin.site.register(Student_data)
 admin.site.register(Expert_data)
 admin.site.register(Attempted_contests)
 admin.site.register(Game)
-
