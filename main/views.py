@@ -353,6 +353,7 @@ def competition_leaderboard(request,pk):
             return(redirect(home))
 
     expert = None
+    
 
     if request.user.is_authenticated:
         if Expert_data.objects.filter(user = request.user):
