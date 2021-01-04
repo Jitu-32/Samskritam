@@ -1,15 +1,15 @@
 {%extends "main/base.html"%}
-{% load static %} 
+{% load static %}
 
 {% block content %}
 
-            
+
 <div class="row">
                     <div class="col-md-12">
                     <div class="section-heading">
                       <h2 style="font-size:40px">{{competition.name}}</h2>
                     </div>
-                  </div>                    
+                  </div>
 
 
                       <div class="col-md-4">
@@ -44,28 +44,28 @@
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-12">
-                               
+
                     <form id="contact" action="" method="post">
                       {% csrf_token %}
                       <!-- <div class="row"> -->
 
-                        
+
                         <h2>MCQ Responses</h2>
                         <br>
-                        
+
 
                        Marks Obtained in MCQ questions = _____
 
                         <hr>
-                        
-                        
+
+
                         <h2>FIB Responses</h2>
                         <br>
-                        
+
 
                         {% for fib_response in fib_responses %}
 
-                         
+
 
                         <p style="font-size: 20px;color: black;"><b>{{forloop.counter}}.</b></p>
                         <br>
@@ -91,5 +91,5 @@
             <h3> You have already attempted this contest !</h3>
 
             {%endif%}
-      
+
 {%endblock%}
