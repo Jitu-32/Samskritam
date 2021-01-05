@@ -268,6 +268,23 @@ def edit_competition(request,pk):
 
     return render(request,'main/edit_competition.html',{"expert":expert,"form":form,"competition":competition})
 
+def new_fib_question(request,pk):
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    contest = Competition.objects.get(pk=pk)
+
+    new_question = FIB_question.objects.create(contest=contest,question="")
+
+    return(redirect(my_competition_questions,contest.pk))    
+    
 
 def new_mcq_question(request,pk):
     # need to create a new opt
