@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import FileSystemStorage
 from datetime import *
+from .forms import *
+
 
 def home(request):
 
@@ -224,8 +226,47 @@ def new_competition(request):
     if not expert:
         return(redirect(home))
 
+    form = CompetitionForm()
+        
+    # print(form)
+    # print("heyy")
 
-    return render(request,'main/new_competition.html',{"expert":expert})
+    if request.method=="POST":
+        new_contest = Competition.objects.create(organiser = expert,name=request.POST['name'],description=request.POST['description'],start_time=request.POST['start_time'],end_time=request.POST['end_time'])
+        return(redirect(my_competition_description,new_contest.pk))
+
+    return render(request,'main/new_competition.html',{"expert":expert,"form":form})
+
+
+def edit_competition(request,pk):
+    # need to create a new competition
+
+    expert = None
+
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            expert = request.user
+
+    if not expert:
+        return(redirect(home))
+
+    competition = Competition.objects.get(pk=pk)
+
+    form = CompetitionForm({"name":competition.name,"description":competition.description})
+        
+    # print(form)
+    # print("heyy")
+
+    if request.method=="POST":
+        # new_contest = Competition.objects.create(organiser = expert,name=request.POST['name'],description=request.POST['description'],start_time=request.POST['start_time'],end_time=request.POST['end_time'])
+        competition.name = request.POST['name']
+        competition.description = request.POST['description']
+        competition.start_time = request.POST['start_time']
+        competition.end_time = request.POST['end_time']
+        competition.save()
+        return(redirect(my_competition_description,competition.pk))
+
+    return render(request,'main/edit_competition.html',{"expert":expert,"form":form,"competition":competition})    
 
 
 def new_mcq_question(request,pk):
@@ -382,6 +423,9 @@ def my_competition_responses(request,pk):
 
 
     return render(request,'main/my_competition_responses.html',{"expert":expert,"competition":competition,"attempted_contests":attempted_contests})
+
+
+
 
 
 def my_competition_student_response(request,pk,student_id):

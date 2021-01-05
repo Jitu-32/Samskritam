@@ -23,6 +23,8 @@ urlpatterns = [
 	path('my_competition_student_response/<int:pk>/<int:student_id>/',views.my_competition_student_response,name="my_competition_student_response"),
 	path('new_mcq_question/<int:pk>/',views.new_mcq_question,name="new_mcq_question"),
 	path('new_mcq_option/<int:pk>/',views.new_mcq_option,name="new_mcq_option"),
+	path('new_competition/',views.new_competition,name="new_competition"),
+	path('edit_competition/<int:pk>/',views.edit_competition,name="edit_competition"),
 
 
 	path('play/',views.play,name="play"),
