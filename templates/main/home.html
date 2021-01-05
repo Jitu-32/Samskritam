@@ -1,5 +1,5 @@
 {%extends "main/base.html"%}
-{% load static %} 
+{% load static %}
 
 {% block content %}
 
@@ -132,7 +132,7 @@
                       <h4>For Experts</h4>
                       <p>This platform provides experts to share their experience and hence guide others to do better. Experts are welcomed to create more weekly competetions and games for other learners.</p>
                       <div class="primary-button">
-                        <a href="{% url 'signup_view %'}">Connect with us.</a>
+                        <a href="{% url 'signup_view' %}">Connect with us.</a>
                       </div>
                     </div>
                   </div>
@@ -147,7 +147,3 @@
 {% include 'main/comments.html'  %}
 
       {%endblock%}
-
-   
-
-      
