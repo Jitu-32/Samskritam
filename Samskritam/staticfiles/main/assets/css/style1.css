@@ -46,12 +46,12 @@ a.liaix { color: #0000CC; font-style: italic; text-decoration: none; border-bott
 a.liaix:hover { color: #DD0000; font-style: italic; text-decoration: none; border-bottom: 0; }
 a.in { color: #330066; text-decoration: none; }
 a.in:hover { color: #DD0000; text-decoration: underline; }
-a.ext { background: url("../images/ext.gif") center right no-repeat; padding-right:1em; }
-a.ext:hover { background: url("../images/ext.png") center right no-repeat; padding-right:1em; }
-a.exti { background: url("../images/ext.gif") center right no-repeat; font-style: italic; padding-right:1em; }
-a.exti:hover { background: url("../images/ext.png") center right no-repeat; font-style: italic; padding-right:1em; }
-a.red { background: url("../images/f_i.gif") no-repeat center left; padding-left: 1em; font-size: 70%; }
-a.red:hover { background: url("../images/f_i.gif") no-repeat center left; padding-left: 1em; font-size: 70%; }
+a.ext { center right no-repeat; padding-right:1em; }
+a.ext:hover { center right no-repeat; padding-right:1em; }
+a.exti { center right no-repeat; font-style: italic; padding-right:1em; }
+a.exti:hover { center right no-repeat; font-style: italic; padding-right:1em; }
+a.red { no-repeat center left; padding-left: 1em; font-size: 70%; }
+a.red:hover { no-repeat center left; padding-left: 1em; font-size: 70%; }
 .tl { color: #009900; font-size: 16pt; font-family: Arial; }
 .st { color: #9D4098; font-weight: bolder; margin: 6em 0 0.6em 1.5em; }
 .st a { color: #9D4098; text-decoration: none; }
@@ -79,9 +79,9 @@ a.npa:hover { color: #DD0000; text-decoration: none; border-bottom: 0; }
 .ptr { text-align:right; font-size: 75%; }
 .qr { text-indent: 3em; text-align: justify; }
 .bf, .bf:hover, .bf:visited { cursor: pointer; font-size: 9pt; color: #666666; margin-left: 0.9em; margin-right: 0.9em; }
-.sub { background: url("../images/envoi.gif") center right no-repeat; padding-right: 20px; cursor: pointer; width: 24px; height: 16px; border-width: 0 0 0 0; }
-.sup { background: url("../images/form.gif") center right no-repeat; cursor: pointer; border-width: 0 0 0 0; }
-.eff { background: url("../images/effacer.png") center right no-repeat; padding-right: 20px; cursor: pointer; width: 24px; height: 16px; border-width: 0 0 0 0; }
+.sub { center right no-repeat; padding-right: 20px; cursor: pointer; width: 24px; height: 16px; border-width: 0 0 0 0; }
+.sup { center right no-repeat; cursor: pointer; border-width: 0 0 0 0; }
+.eff { center right no-repeat; padding-right: 20px; cursor: pointer; width: 24px; height: 16px; border-width: 0 0 0 0; }
 .bo { color: #0000D7; background-color: #DFDFFF; cursor: pointer; font-size: 9pt; font-family: Arial; border: 1px #AEAEFF; }
 .bo:hover { color: #DD0000; background-color: #EAEAFF; font-size: 9pt; font-family: Arial; border: 1px #AEAEFF; }
 textarea { font-family: Arial; color: #5B5B5B; font-size:12pt; }
@@ -134,7 +134,7 @@ a.lg:hover {color: #DD0000;font-size: 80%;text-decoration: underline;}
 .cf { float:left; padding-left: 5%; font-size: 75%; }
 .ti { color: #33CC00; font-size: 20pt; font-family: Comic Sans MS, Georgia; text-align: center; }
 .libr { margin: 6em 0 0.6em 1.2em; }
-a.frp { background: url("../images/f_i.gif") left no-repeat; padding-left: 0.6em; font-size: 75%; }
+a.frp { left no-repeat; padding-left: 0.6em; font-size: 75%; }
 sup { font-size: 0.7em; line-height: 0.8em; }
 .nowrap { white-space: nowrap; }
 .center { text-align: center; }
@@ -251,7 +251,7 @@ sup { font-size: 0.7em; line-height: 0.8em; }
 .tab-kbd tr { vertical-align:top; text-align:center; }
 
 
-.ligne { background-image: url("../images/ligne.png"); width: 65%; height: 2px; }
+.ligne { width: 65%; height: 2px; }
 .barre { color: blue; font-size: 120%; }
 ul li{ line-height:20pt; }
 
