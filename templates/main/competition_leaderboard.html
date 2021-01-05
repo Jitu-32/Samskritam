@@ -55,7 +55,11 @@
                           <tr>
                             <td><a href="{% url 'my_competition_student_response' pk=competition.pk student_id=student.student.pk %}">{{student.student}}</a></td>
                             
+                            {% if student.evaluated%}
                             <td>{{student.marks}}</td>
+                            {% else %}
+                            <td>Not evaluated yet</td>
+                            {%endif%}
                             <!-- <td>{{competition.end_time}}</td> -->
                           </tr>
                           {% endfor %}
