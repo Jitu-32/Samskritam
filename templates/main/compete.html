@@ -1,9 +1,13 @@
 {%extends "main/base.html"%}
-{% load static %} 
+{% load static %}
 
 {% block content %}
 
+
             <!-- Banner -->
+            <style media="screen">
+              background-image: url({% static 'main/assets/images/compete.png' %});
+            </style>
             <div class="page-heading">
               <div class="container-fluid">
                 <div class="row">
@@ -22,11 +26,11 @@
                   <div class="col-md-12">
 
                     <div class="default-table">
-                      
+
                       <div class="section-heading">
                         <h2>Live Competitions</h2>
                       </div>
-                      
+
                       <table>
                         <thead>
                           <tr>
@@ -64,7 +68,7 @@
                     <br>
 
                     <div class="alternate-table">
-                      
+
                       <div class="section-heading">
                         <h2>Past Competitions</h2>
                       </div>
@@ -103,9 +107,8 @@
             </section>
 
             <!-- Top Image -->
-            
+
           {% include 'main/comments.html'  %}
 
-      
-      {%endblock%}
 
+      {%endblock%}

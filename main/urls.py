@@ -10,8 +10,6 @@ urlpatterns = [
 	path('logout/',views.logout_view,name="logout_view"),
 	path('signup/',views.signup_view,name="signup_view"),
 
-
-
 	path('competition_description/<int:pk>/',views.competition_description,name="competition_description"),
 	path('competition_questions/<int:pk>/',views.competition_questions,name="competition_questions"),
 	path('competition_leaderboard/<int:pk>/',views.competition_leaderboard,name="competition_leaderboard"),
