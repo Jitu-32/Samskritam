@@ -1,0 +1,254 @@
+{%extends "main/base.html"%}
+{% load static %}
+
+{% block content %}
+<div class="page-heading">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="font-size: 3.5rem; text-align: center;font-weight: bold;
+        padding-top: 8%;">Lesson 6</h1>
+        <p style="text-align: center; font-size: 3rem; font-weight: bold;"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-deck" style="height: 250px; padding: 3%;">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 style="text-align: center; font-size: 1.5rem; font-weight: bold;">Notes</h4>
+      </div>
+      <div class="card-body" style="color: black;font-size: 1.2rem;">
+        <p id="appendnote">Here are your notes:</p>
+        {% for note_i in notes %}
+        <p>{{note_i.note}}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<article style="padding:3%;">
+
+  <div style="background-color: #F5EBD8;">
+    <p data-adtags-visited="true">“How much ?” and “How many ?” are the common interrogatives that yield numerical answers. Sanskrit interrogative is कति.</p>
+    <ul>
+      <li>When we go to a shop, we would ask,
+        <ul>
+          <li>“How much does this thing cost ?” कति मूल्यं अस्य ? (** Note – As detailed below,&nbsp;कति is always plural. Hence using it with&nbsp;मूल्यं, which is singular, becomes wrong. Thanks to Mr. Dhananjay Nanivadekar for pointing this error.
+            The question can rather be कियद् मूल्यम् अस्य ? or किम् मूल्यम् अस्य ?)</li>
+          <li>The shopkeeper may say “Ten Rupees” दश रूप्यकाणि.</li>
+        </ul>
+      </li>
+      <li>Since coinage-systems will be different at different places, we will have to adapt in Sanskrit-speaking same names, as they prevail. These are proper nouns. Proper Nouns are never to be translated.</li>
+      <li>The other day I could not go to a meeting. But was curious to know how many people turned out.
+        <ul>
+          <li>I asked my friend, “How many people were there ? कति जनाः आसन् ? Note, आसन् is भूतकाल प्रथमपुरुष बहुवचन inflection of verb अस् (= to be) Hence आसन् = were. We shall discuss past tense separately in another chapter.</li>
+          <li>Surprisingly, he told, “Only two of us, Mr. Ramesh and Myself” केवलं आवां द्वौ रमेशवर्यः अहं च |</li>
+          <li>Some people think it good to do inflections of proper-nouns also. In रामायणम् महाभारतम् भागवतम् there are inflections of large number of proper nouns. But proper nouns in many countries around the world may not be easy to make their
+            inflections. Mr. John may rather be called as जॉन्-वर्यः It would sound odd to say जॉन:, right ? Actually जॉन् is a consonant-ending word. So&nbsp;जॉन: would not be grammatically correct. That becomes the problem to do inflections of
+            proper nouns.
+            <ul>
+              <li>In fact Hindi-speaking people who also follow Devanagari script for Hindi may write and pronounce the name as जोन्</li>
+              <li>In Marathi writing, which also uses Devanagari script, writing the pronunciation as&nbsp;जॉन् with a crescent above&nbsp;जा is accepted almost as a norm.</li>
+              <li>Likewise “Ann” may be called एन्-महोदया ऐन्-महोदया.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p class="inline-ad-slot" id="inline-ad-14" style="float:left;height:0px;margin:0 auto;overflow:hidden;width:1167px;" data-adtags-width="1167" data-adtags-visited="true"></p>
+    <p data-adtags-visited="true">Anyway, these are digressions from the main subject of “Numbers”.</p>
+    <p data-adtags-visited="true">By the way, the interrogative कति is by convention “always plural”. And it has identical inflections for all genders. Its inflections in different cases are – कति (प्रथमा), कति (द्वितीया), कतिभिः (तृतीया), कतिभ्यः
+      (चतुर्थी), कतिभ्यः (पञ्चमी), कतीनाम् (षष्ठी), कतिषु (सप्तमी).</p>
+    <p data-adtags-visited="true">Answers of questions asked using कति could be vague or uncertain. In Lesson 5 towards its end, there was the mention of the suffix चित् and its usage with all inflections of the pronoun किम्. The suffix चित् can as
+      well be used with all inflections of कति to obtain a meaning “some” or “few”. For example –</p>
+    <ul>
+      <li>The proposal was accepted by some people = प्रस्तावः (proposal) कतिभिश्चित् (by some or few) जनैः (people) स्वीकृतः (was accepted).</li>
+      <li>“It is useful for some” = कतिभ्यश्चित् उपयोगि इदम् Note –
+        <ul>
+          <li>कतिभ्यश्चित् (= कतीभ्यः+चित् = for some)</li>
+          <li>उपयोगि (useful)</li>
+          <li>इदम् (= this)</li>
+        </ul>
+      </li>
+      <li>This phrase कतिभ्यश्चित् उपयोगि इदम् could as well be a question, “Is it useful for (at least) a few ?” Right at the beginning of Lesson 3, there was introduction to making interrogatives from simple sentences by using pronoun किम्.
+        However, since &nbsp;some interrogative sense is implicit in कति,&nbsp; a question can be formed even without using any other obvious or clear interrogative.</li>
+    </ul>
+    <ul>
+      <ul>
+        <li>कतिभ्यश्चित् उपयोगि इदम् is a good example of this. Just a change in intonation would make it affirmative or interrogative.</li>
+      </ul>
+    </ul>
+    <p class="inline-ad-slot" id="inline-ad-15" style="float:left;height:0px;margin:0 auto;overflow:hidden;width:1167px;" data-adtags-width="1167" data-adtags-visited="true"></p>
+    <p data-adtags-visited="true">In Apte’s dictionary many more interesting details about कति are given.</p>
+    <ul>
+      <li>Meaning 1 of कति – ‘How many’</li>
+      <li>Meaning 2 of कति – ‘some’</li>
+      <li>When followed by चित् चन अपि the pronoun कति loses its interrogative force and becomes indefinite in sense, meaning ‘some’, ‘several’, ‘a few’
+        <ul>
+          <li>This detail in Apte’s dictionary puts in doubt usage of कति in the interrogative, as shown above in the phrase कतिभ्यश्चित् उपयोगि इदम् as a question, “Is it useful for (at least) a few ?” Sanskrit-experts may please comment.</li>
+        </ul>
+      </li>
+      <li>In the dictionary, some more words derived from कति are detailed separately.</li>
+      <li>कतिकृत्वस् or कतिकृत्व: an indeclinable अव्यय meaning ‘how many times’
+        <ul>
+          <li>Here I would like to thankfully acknowledge an important comment posted by Dr. H. N. Bhat. To ensure that the comment may not be missed out, I am editing this Lesson 8 itself.</li>
+          <li>The point is that कृत्वस् or कृत्व: is a suffix which makes an adverb from a numeral nominal. कति is a numeral nominal, similar to other numeral nominals such as एक द्वि त्रि&nbsp;चतुर् सहस्र</li>
+          <li>A good example of derivation of an indeclinable अव्यय by affixing a suffix कृत्वस् or कृत्व: to a numeral nominal is in नमो नमस्तेऽस्तु सहस्रकृत्वः पुनश्च भूयोऽपि नमो नमस्ते (गीता, ११-३९)</li>
+          <li>Meaning of नमो नमस्तेऽस्तु सहस्रकृत्वः पुनश्च भूयोऽपि नमो नमस्ते (गीता, ११-३९) is “May my obeisances be a thousand times, again and&nbsp;again</li>
+          <li>Note पुनश्च means ‘again’ भूयोऽपि also means ‘again’. Arjuna is so overwhelmed that he wants to pay obeisances be a thousand times and again and&nbsp;again !</li>
+        </ul>
+      </li>
+      <li>कतिधा an indeclinable अव्यय meaning ‘how often’, ‘in how many places or parts’
+        <ul>
+          <li>A good example of this is possibly the quotation विष्णुः त्रेधा निदधे पदम् (= ViShNu put his foot at three places). This quotation can prompt a question विष्णुः कतिधा निदधे पदम् ? (= At how many places did ViShNu put his foot ?)
+            <ul>
+              <li>This quotation विष्णुः त्रेधा निदधे पदम् has the context of वामनावतार when Lord विष्णु asks of दैत्य-king बलि land enough for just four steps. Although विष्णु appears as वामन, as a small boy, in three steps विष्णु pervades all three
+                worlds – the heaven, the earth and also the netherworld. True to his offer of land of four steps, बलि kneels before विष्णु for विष्णु to put the fourth step on his own head.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>कतिपय an adjective विशेषणम्, hence would have inflections in all three genders, all seven cases and in all three numbers. कतिपय means ‘some, ‘several’, ‘a certain number of’ (Here ‘a certain’ has indefinite sense)
+        <ul>
+          <li>Comes to mind an example from बाण-भट्ट’s &nbsp;कादंबरी where, वैशंपायन is narrating of early days of his second birth as a parrot with human tongue. He says – एवं च अवहितचेतसा हारीतेन संवर्ध्यमानः कतिपयैः एव दिवसैः संजातपक्षः अभवम्
+            &nbsp;Here एवं च (= Thus) being lovingly tended by हारीत (the son of Rishi Jaabaala) अवहितचेतसा हारीतेन संवर्ध्यमानः, in a few कतिपयैः days दिवसैः I had wings grown on me संजातपक्षः अभवम्.</li>
+          <li>Note, कतिपयैः as adjective of दिवसैः has identical (masculine) gender, (third) case and (plural) number.</li>
+        </ul>
+      </li>
+      <li>कतिविध, an adjective, विशेषणम् hence declinable in all three genders, all seven cases and in all three numbers. Its meaning ‘of how many kinds’. For example, कतिविधानि भूतानि Living beings are of how many kinds ? – द्विपदा: (= bipeds)
+        चतुष्पदा: (= quadrupeds) खगाः (= birds) मत्स्याः (= aquatic) सर्पाः (= reptiles) जन्तवः (= insects and microbes)
+        <ul>
+          <li>Here also I would like to thankfully acknowledge an important comment posted by Dr. H. N. Bhat. To ensure that the comment may not be missed out, I am editing this Lesson 8 itself here also.</li>
+          <li>The point is that विध is a suffix, which makes an adjecttive from a numeral nominal. कति is a numeral nominal, similar to other numeral nominals such as एक द्वि त्रि&nbsp;चतुर् सहस्र</li>
+          <li>So adjectives derived from एक द्वि त्रि&nbsp;चतुर् सहस्र by affixing the suffix विध are एकविध द्विविध त्रिविध चतुर्विध सहस्रविध also कतिविध.</li>
+          <li>A few examples of these in different genders and numbers will be –
+            <ul>
+              <li>Volunteers have a common uniform स्वयंसेवकानां एकविधः गणवेशः
+                <ul>
+                  <li>स्वयंसेवकानां = of volunteers</li>
+                  <li>एकविधः = of one type, common, identical</li>
+                  <li>गणवेशः = uniform</li>
+                </ul>
+              </li>
+              <li>A mind dwelling on this or that is not good for decision-making द्विविधस्य मनसः न निर्णयः
+                <ul>
+                  <li>द्विविधस्य = of two types (of thoughts)</li>
+                  <li>मनसः = of mind</li>
+                  <li>न निर्णयः = no decision</li>
+                  <li>द्विविधस्य मनसः न निर्णयः = no decision (happens) of mind of two types of thoughts</li>
+                </ul>
+              </li>
+              <li>Of people who become my devotees, there are four types, i.e. Four types of people become my devotees चतुर्विधा भजन्ते मां जनाः सुकृतिनोऽर्जुन (गीता, ७-१६). Note चतुर्विधा is actually चतुर्विधाः</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>कतिशस् or कतिशः an indeclinable अव्यय, meaning ‘how many at a time’ Say, for example, “In how many pieces did the wood-cutter break the log ?” दारुकर्मिणा दारुः कतिशः विभक्तः ?
+        <ul>
+          <li>दारुकर्मिणा = by the wood-worker (i.e. wood-cutter)</li>
+          <li>दारुः = log</li>
+          <li>कतिशः = in how many pieces</li>
+          <li>विभक्तः = was cut</li>
+        </ul>
+      </li>
+    </ul>
+    <p class="inline-ad-slot" id="inline-ad-16" style="float:left;height:0px;margin:0 auto;overflow:hidden;width:1167px;" data-adtags-width="1167" data-adtags-visited="true"></p>
+    <p data-adtags-visited="true">As mentioned above from Apte’s dictionary, कति may be followed by another suffix चन. There it was also mentioned, “… When followed by चित् चन अपि the pronoun कति loses its interrogative force and becomes indefinite
+      in sense, meaning ‘some’, ‘several’, ‘a few’…” By that कतिचन would mean ‘few’, ‘some’. For example, नेतुः स्वागताय कार्यकर्तारः कतिचन मालाः अर्पयन्ति meaning नेतुः (= of the leader) स्वागताय (= for welcome) कार्यकर्तारः (= workers) कतिचन (a
+      few) मालाः (= garlands) अर्पयन्ति (= offer) i.e. Workers offer a few garlands for welcome of the leader.</p>
+    <p data-adtags-visited="true">By the way, it is to be noted that चित्, चन and अपि can as well be affixed to interrogative adverbs such as कदा कुत्र कथम्. With these suffixes the adverbs also will lose their interrogative force. They may get some
+      negative shade of meaning !</p>
+    <p data-adtags-visited="true">In fact some people contend that चन has the derivation च + न = and not. By that token use of चन lends some different shade of meaning than use of चित्. Use of अपि also has an effect similar to that of चन. For example
+      –<br>
+      Is it possible any time ? कदाचन शक्यं इदम् ?<br>
+      May be possible शक्यं कदाचित्</p>
+    <ul>
+      <li>It may be noted that here कदाचित् has the meaning of ‘may be’ and not just as ‘some time’</li>
+    </ul>
+    <p data-adtags-visited="true">Never possible न कदापि शक्यम्</p>
+    <ul>
+      <li>Here suffix अपि makes the negative न so much more forceful !</li>
+    </ul>
+    <p class="inline-ad-slot" id="inline-ad-17" style="float:left;height:0px;margin:0 auto;overflow:hidden;width:1167px;" data-adtags-width="1167" data-adtags-visited="true"></p>
+    <p data-adtags-visited="true">Instead of the question कदाचन शक्यं इदम् ? one could as well say कदाचित् शक्यं इदम् ? or कदापि शक्यं इदम् ? But conventionally the force becomes different.</p>
+    <ul>
+      <li>कदाचन शक्यं इदम् ? = Is it any time possible ? Here the questioner could just be inquisitive.</li>
+      <li>कदाचित् शक्यं इदम् ? = Is there a possibility that this would be possible ? Here the questioner implies some positive possibility.</li>
+      <li>कदापि शक्यं इदम् ? = Is it ever possible ? The questioner is almost implying that it is never possible.</li>
+    </ul>
+    <p data-adtags-visited="true">The difference in force in use of चित्, चन and अपि is substantially conventional.</p>
+    <p data-adtags-visited="true">Just see how the interrogative कदाचन can also become affirmative कदाचन or negative कदाचन —<br>
+      कदाचन शक्यं इदम् ? = Is it any time possible ?<br>
+      कदाचन तु शक्यं | किं न ? = Some time or other possible, why not ? or<br>
+      कदाचन न शक्यम् = Not possible any time, i.e. never possible.</p>
+    <p data-adtags-visited="true">Here is another example of कदापि.</p>
+    <p data-adtags-visited="true">Two and two will be four always. Never otherwise. द्व्यधिके द्वे चत्वारि सर्वदा | न अन्यथा कदापि |</p>
+    <ul>
+      <li>द्व्यधिके द्वे = two added to two Note, द्व्यधिके is द्वि + अधिके</li>
+      <li>चत्वारि सर्वदा = four always</li>
+      <li>न अन्यथा कदापि = not otherwise ever.</li>
+    </ul>
+    <p class="inline-ad-slot" id="inline-ad-18" style="float:left;height:0px;margin:0 auto;overflow:hidden;width:1167px;" data-adtags-width="1167" data-adtags-visited="true"></p>
+    <p data-adtags-visited="true">Note in द्व्यधिके द्वे चत्वारि they are all in neuter gender, again by convention. When speaking of numbers as numbers they will be by neuter gender.</p>
+    <p dir="ltr" style="text-align:center;" data-adtags-visited="true"><strong>शुभमस्तु |</strong></p>
+  </div><!-- .entry-content -->
+  <br><br><br>
+
+  <ul class="table-pagination">
+    <li><a href="lesson5">Prev</a></li>
+    <li><a href="lesson1">1</a></li>
+    <li><a href="#">...</a></li>
+    <li><a href="#">5</a></li>
+    <li class="active"><a href="lesson6">6</a></li>
+  </ul>
+
+  <div id="addnote" style="transition: margin-right .5s; margin-right:0%;">
+    <button type="button" class="btn btn-secondary btn-large rounded-left" style="position: fixed;
+    top: 50%;
+    right: 0%;
+    height: 250px;
+    width: 75px;
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);" name="button" onclick="openNavNotes()">A <br>D <br>D<br><br>N <br>O <br>T <br>E <br>S</button>
+
+  </div>
+
+  <div id="addnotetext" style="height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  right: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s;">
+
+    <button type="button" class="btn btn-secondary btn-large rounded" style="position: static;
+  color: black;
+    top: 50%;
+    height: 50px;
+    width: 250px;
+    font-size: 1.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);" name="button" onclick="closeNavNotes()">ADD NOTES</button>
+    <form method="post">
+      {% csrf_token %}
+      <label style="color: white; text-align: center;">Add a note here:</label>
+      <br>
+      <textarea name="note" rows="8" cols="80" style="width: 240px; height: 300px; margin: 0px 5px;"></textarea>
+      <input type="submit" onclick="" name="" value="Submit" style="height: 30px; width: 240px; margin: 0px 5px;" id="submitNote">
+    </form>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  </script>
+  {%endblock%}
