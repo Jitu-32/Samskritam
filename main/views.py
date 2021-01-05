@@ -682,3 +682,7 @@ def lesson6(request):
 def history(request):
     
     return render(request,'main/history.html')
+
+def video_call(request):
+    
+    return render(request,'main/video_call.html')    

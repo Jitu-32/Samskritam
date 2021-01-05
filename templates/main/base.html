@@ -139,7 +139,7 @@ https://templatemo.com/tm-529-ramayana
             {% if expert %}
             <li><a href="{% url 'my_competitions' %}">My Competitions</a></li>
             {%endif%}
-            <li><a href="#">Classes</a></li>
+            <li><a href="{% url 'video_call' %}">Classes</a></li>
             <li><a href="#">About Us</a></li>
             {%if not user.is_authenticated%}
             <li><a href="{% url 'signup_view' %}">Sign Up</a></li>
