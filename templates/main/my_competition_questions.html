@@ -101,7 +101,7 @@
                         <hr>
                         
                         
-                        <h2>FIB Questions</h2>
+                        <h2>FIB Questions &nbsp; &nbsp; <a href="{% url 'new_fib_question' pk=competition.pk %}" title="Add FIB Question">+</a></h2>
                         <br>
                         
 
@@ -113,7 +113,7 @@
                         <br>
 
                         <div class="col-12">
-                          <textarea name="fib{{fib_question.pk}}" id="fib{{fib_question.pk}}" placeholder="Enter your answer here" rows="6">{{fib_question.question}}</textarea>
+                          <textarea name="fib{{fib_question.pk}}" id="fib{{fib_question.pk}}" placeholder="Enter the question here" rows="6">{{fib_question.question}}</textarea>
                         </div>
                         {% endfor %}
 
