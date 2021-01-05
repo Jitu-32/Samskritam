@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
 	path('',views.home,name="home"),
+	path('know_more/',views.history,name="history"),
 	path('compete/',views.compete,name="compete"),
 	path('logout/',views.logout_view,name="logout_view"),
 	path('signup/',views.signup_view,name="signup_view"),
@@ -34,4 +35,5 @@ urlpatterns = [
 	path('learn/lesson4',views.lesson4,name='lesson4'),
 	path('learn/lesson5',views.lesson5,name='lesson5'),
 	path('learn/lesson6',views.lesson6,name='lesson6'),
+
 ]

@@ -677,3 +677,8 @@ def lesson6(request):
             new_note.save()
     notes_list=notes.objects.filter(lesson_no=6,user=request.user)
     return render(request,'main/learn/lessons/lesson6.html',{"lesson_no":"6"})
+
+
+def history(request):
+    
+    return render(request,'main/history.html')
