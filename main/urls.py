@@ -45,6 +45,8 @@ urlpatterns = [
 	path('learn/lesson5',views.lesson5,name='lesson5'),
 	path('learn/lesson6',views.lesson6,name='lesson6'),
 
-	path('classes/',views.video_call,name='video_call'),
+	path('classes/',views.join_class,name='class'),
+	path('video_call/',views.video_call,name='video_call'),
+
 
 ]

@@ -1,0 +1,10 @@
+{%extends "main/base.html"%}
+{% load static %}
+{% block content %}
+{% if isexpert %}
+<button type="button" name="button" onclick="#">Create Class</button><br>
+<button type="button" name="button" onclick="window.location.href={% url 'video_call' %}">Join Class</button>
+{% else %}
+<button type="button" name="button" onclick="window.location.href={% url 'video_call' %}">Join Class</button>
+{% endif %}
+{% endblock %}

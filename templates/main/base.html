@@ -9,6 +9,63 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  <link rel="shortcut icon" href="https://www.lexilogos.com/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="Lexilogos" href="https://www.lexilogos.com/rss.xml">
+  <link href="{% static 'main/assets/css/style1.css' %}" rel="stylesheet" type="text/css">
+  <style>
+    .bt,
+    .bt:visited {
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 20pt;
+      font-family: Chandas, Arial;
+      color: #CC0033;
+    }
+
+    .bt:hover {
+      color: #0000FF;
+    }
+
+    .deva {
+      color: #0000FF;
+      font-family: Chandas, Arial;
+      font-size: 120%;
+    }
+
+    .kb-deva {
+      font-family: Chandas, Arial;
+      font-size: 18pt;
+    }
+
+    .cadr {
+      width: 80%;
+      color: #0000FF;
+      font-family: Chandas, Arial;
+      font-size: 15pt;
+      padding: 0.3em;
+    }
+  </style>
+  <script async="" src="{% static 'main/assets/js/analytics.js' %}"></script>
+  <script src="{% static 'main/assets/js/base.js' %}"></script>
+  <script src="{% static 'main/assets/js/carsa.js' %}"></script>
+  <script src="{% static 'main/assets/js/clipboard.js' %}"></script>
+  <script src="{% static 'main/assets/js/savee.js' %}"></script>
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-122422-1', 'auto');
+    ga('send', 'pageview');
+  </script>
   <style>
     .mastbk {
       height: 0;
@@ -17,7 +74,7 @@
       z-index: 1;
       bottom: 0;
       left: 0;
-      background-color: rgba(10, 10, 10, 0);
+      background-color: rgba(255, 255, 255, 1);
       overflow-y: scroll;
       transition: 0.5s;
       padding-bottom: 0px;
@@ -38,7 +95,7 @@
 
     .mastbk .closebtn {
       position: absolute;
-      bottom: 190px;
+      bottom: 600px;
       right: 160px;
       font-size: 36px;
       margin-left: 50px;
@@ -139,7 +196,7 @@ https://templatemo.com/tm-529-ramayana
             {% if expert %}
             <li><a href="{% url 'my_competitions' %}">My Competitions</a></li>
             {%endif%}
-            <li><a href="{% url 'video_call' %}">Classes</a></li>
+            <li><a href="{% url 'class' %}">Classes</a></li>
             <li><a href="#">About Us</a></li>
             {%if not user.is_authenticated%}
             <li><a href="{% url 'signup_view' %}">Sign Up</a></li>
@@ -227,203 +284,286 @@ https://templatemo.com/tm-529-ramayana
   <div id="mymastbk" class="mastbk">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <!-- Navigation -->
-    <div class="keyboard">
-      <ul class="keyrow1">
-        <li>
-          <div class="key"> ऒ <span>~</span><br> ॊ <span>q</span></div>
-        </li>
-        <li>
-          <div class="key"> ऍ <span>!</span><br> 1 <span>1</span></div>
-        </li>
-        <li>
-          <div class="key"> ॅ <span>@</span><br> 2 <span>2</span></div>
-        </li>
-        <li>
-          <div class="key"> ्र <span>#</span><br> 3 <span>3</span></div>
-        </li>
-        <li>
-          <div class="key"> र् <span>$</span><br> 4 <span>4</span></div>
-        </li>
-        <li>
-          <div class="key"> ज्ञ <span>%</span><br> 5 <span>5</span></div>
-        </li>
-        <li>
-          <div class="key"> त्र <span>^</span><br> 6 <span>6</span></div>
-        </li>
-        <li>
-          <div class="key"> क्ष <span>&</span><br> 7 <span>7</span></div>
-        </li>
-        <li>
-          <div class="key"> श्र <span>*</span><br> 8 <span>8</span></div>
-        </li>
-        <li>
-          <div class="key"> ( <span>(</span><br> 9 <span>9</span></div>
-        </li>
-        <li>
-          <div class="key"> ) <span>)</span><br> 0 <span>0</span></div>
-        </li>
-        <li>
-          <div class="key"> ः <span>_</span><br> - <span>-</span></div>
-        </li>
-        <li>
-          <div class=" "> ऋ <span>+</span><br> ॉ <span>=</span></div>
-        </li>
-        <li>
-          <div class="backspance ls1"> Backspace <br> &nbsp; </div>
-        </li>
-      </ul>
-      <div class="clearfix"></div>
-      <ul class="keyrow2">
-        <li>
-          <div class="tab ls1"> Tab<br> &nbsp; </div>
-        </li>
-        <li>
-          <div class="key"> औ <span>Q</span><br> ौ <span>q</span></div>
-        </li>
-        <li>
-          <div class="key"> ऐ <span>W</span><br> ै <span>w</span></div>
-        </li>
-        <li>
-          <div class="key"> आ <span>E</span><br> ा <span>e</span></div>
-        </li>
-        <li>
-          <div class="key"> ई <span>R</span><br> ी <span>r</span></div>
-        </li>
-        <li>
-          <div class="key"> ऊ <span>T</span><br> ू <span>t</span></div>
-        </li>
-        <li>
-          <div class="key"> भ <span>Y</span><br> ब <span>y</span></div>
-        </li>
-        <li>
-          <div class="key"> ङ <span>U</span><br> ह <span>u</span></div>
-        </li>
-        <li>
-          <div class="key"> घ <span>I</span><br> ग <span>i</span></div>
-        </li>
-        <li>
-          <div class="key"> ध <span>O</span><br> द <span>o</span></div>
-        </li>
-        <li>
-          <div class="key"> झ <span>P</span><br> ज <span>p</span></div>
-        </li>
-        <li>
-          <div class="key"> ढ <span>{</span><br> ड <span>[</span></div>
-        </li>
-        <li>
-          <div class="key"> ञ <span>}</span><br> ़ <span>]</span></div>
-        </li>
-        <li>
-          <div class="key-or"> ऑ <span>|</span><br> ॉ <span>\</span></div>
-        </li>
-      </ul>
-      <div class="clearfix"></div>
-      <ul class="keyrow3">
-        <li>
-          <div class="caplock ls1"> Caps Lock <br> &nbsp; </div>
-        </li>
-        <li>
-          <div class="key"> ओ <span>A</span><br> ो <span>a</span></div>
-        </li>
-        <li>
-          <div class="key"> ए <span>S</span><br> े <span>s</span></div>
-        </li>
-        <li>
-          <div class="key"> अ <span>D</span><br> ् <span>d</span></div>
-        </li>
-        <li>
-          <div class="key"> इ <span>F</span><br> ि <span>f</span></div>
-        </li>
-        <li>
-          <div class="key"> उ <span>G</span><br> ु <span>g</span></div>
-        </li>
-        <li>
-          <div class="key"> फ <span>H</span><br> प <span>h</span></div>
-        </li>
-        <li>
-          <div class="key"> ऱ <span>J</span><br> र <span>j</span></div>
-        </li>
-        <li>
-          <div class="key"> ख <span>K</span><br> क <span>k</span></div>
-        </li>
-        <li>
-          <div class="key"> थ <span>L</span><br> त <span>l</span></div>
-        </li>
-        <li>
-          <div class="key"> छ <span>:</span><br> च <span>;</span></div>
-        </li>
-        <li>
-          <div class="key"> ठ <span>"</span><br> ट <span>'</span></div>
-        </li>
-        <li>
-          <div class="enter ls1"><span>Enter</span><br> &nbsp; </div>
-        </li>
-
-      </ul>
-      <div class="clearfix"></div>
-      <ul class="keyrow4">
-        <li>
-          <div class="shift ls1">Shift<br> &nbsp; </div>
-        </li>
-        <li>
-          <div class="key"> ऎ <span>Z</span><br> ॆ <span>z</span></div>
-        </li>
-        <li>
-          <div class="key"> ँ <span>X</span><br> ं <span>x</span></div>
-        </li>
-        <li>
-          <div class="key"> ण <span>C</span><br> म <span>c</span></div>
-        </li>
-        <li>
-          <div class="key"> ऩ <span>V</span><br> न <span>v</span></div>
-        </li>
-        <li>
-          <div class="key"> ऴ <span>B</span><br> व <span>b</span></div>
-        </li>
-        <li>
-          <div class="key"> ळ <span>N</span><br> ल <span>n</span></div>
-        </li>
-        <li>
-          <div class="key"> श <span>M</span><br> स <span>m</span></div>
-        </li>
-        <li>
-          <div class="key"> ष <span>
-              < </span><br> , <span>,</span></div>
-        </li>
-        <li>
-          <div class="key"> । <span>></span><br> . <span>.</span></div>
-        </li>
-        <li>
-          <div class="key"> य़ <span>?</span><br> य <span>/</span></div>
-        </li>
-        <li>
-          <div class="shift ls1"> <span>Shift</span><br>&nbsp; </div>
-        </li>
-
-      </ul>
-      <div class="clearfix"></div>
-      <ul class="keyrow5 text-center">
-        <li>
-          <div class="ctrl ls1">Ctrl</div>
-        </li>
-        <li>
-          <div class="alt ls1"> Alt </div>
-        </li>
-        <li>
-          <div class="space ls1"> Space </div>
-        </li>
-        <li>
-          <div class="alt ls1"> Alt </div>
-        </li>
-        <li>
-          <div class="ctrl ls1"> Ctrl </div>
-        </li>
-
-      </ul>
-      <div class="clearfix"></div>
-
+    <span class="kb-t">Sanskrit</span> &nbsp; <span class="kb-deva">संस्कृतम्</span>
+    <div class="cd">
     </div>
-
+    <div class="esp"></div>
+    <div class="esp"></div>
+    <div class="center">
+      <noscript>
+        <span class="span-red">Warning! JavaScript is disabled, the functionality of Lexilogos is unavailable.</span><br>
+        You must enable JavaScript in your web browser: see the <a class="ext" href="https://www.enable-javascript.com/" target="_blank">instructions</a>.<br><br>
+      </noscript>
+      <br>
+      <form name="conversion">
+        <div class="delc">
+          <br>
+          <input type="button" class="eff" title="clear" onclick="reset();conversion.saisie.focus()" value="">
+        </div>
+        <textarea name="saisie" id="bar" onkeyup="transcrire()" rows="4" class="cadr"></textarea>
+        <br>
+        <br>
+        <input type="button" class="bf" onclick="copysanskrit()" data-clipboard-action="copy" data-clipboard-target="#bar" value="copy">
+        <script>
+          var clipboard = new Clipboard('.bf');
+          clipboard.on('success', function(e) {
+            console.log(e);
+          });
+          clipboard.on('error', function(e) {
+            console.log(e);
+          });
+        </script>
+        <input type="button" class="bf" onclick="save()" value="save">
+        <input type="button" class="bf" onclick="alpha(&#39; &#39;)" value="space"><input type="button" class="bf" onclick="conversion.saisie.rows=4;conversion.saisie.focus()" value="small frame"><input type="button" class="bf"
+          onclick="conversion.saisie.rows=40;conversion.saisie.focus()" value="large frame">
+        <br>
+        <table class="tab-kbd">
+          <tbody>
+            <tr>
+              <td style="width:42%;">
+                <table class="tab-kb">
+                  <tbody>
+                    <tr class="arial">
+                      <td>ka</td>
+                      <td>kha</td>
+                      <td>ga</td>
+                      <td>gha</td>
+                      <td>nga</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;क&#39;)" value="क"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ख&#39;)" value="ख"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ग&#39;)" value="ग"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;घ&#39;)" value="घ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ङ&#39;)" value="ङ"></td>
+                    </tr>
+                    <tr class="arial">
+                      <td>ca</td>
+                      <td>cha</td>
+                      <td>ja</td>
+                      <td>jha</td>
+                      <td>ña</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;च&#39;)" value="च"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;छ&#39;)" value="छ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ज&#39;)" value="ज"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;झ&#39;)" value="झ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ञ&#39;)" value="ञ"></td>
+                    </tr>
+                    <tr class="arial">
+                      <td>Ṭa</td>
+                      <td>Ṭha</td>
+                      <td>Ḍa</td>
+                      <td>Ḍha</td>
+                      <td>Ṇa</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ट&#39;)" value="ट"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ठ&#39;)" value="ठ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ड&#39;)" value="ड"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ढ&#39;)" value="ढ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ण&#39;)" value="ण"></td>
+                    </tr>
+                    <tr class="arial">
+                      <td>ta</td>
+                      <td>tha</td>
+                      <td>da</td>
+                      <td>dha</td>
+                      <td>na</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;त&#39;)" value="त"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;थ&#39;)" value="थ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;द&#39;)" value="द"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ध&#39;)" value="ध"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;न&#39;)" value="न"></td>
+                    </tr>
+                    <tr class="arial">
+                      <td>pa</td>
+                      <td>pha</td>
+                      <td>ba</td>
+                      <td>bha</td>
+                      <td>ma</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;प&#39;)" value="प"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;फ&#39;)" value="फ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ब&#39;)" value="ब"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;भ&#39;)" value="भ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;म&#39;)" value="म"></td>
+                    </tr>
+                    <tr class="arial">
+                      <td>ya</td>
+                      <td>ra</td>
+                      <td>la</td>
+                      <td>va</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;य&#39;)" value="य"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;र&#39;)" value="र"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ल&#39;)" value="ल"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;व&#39;)" value="व"></td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr class="arial">
+                      <td>śa</td>
+                      <td>Ṣa</td>
+                      <td>sa</td>
+                      <td>ha</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;श&#39;)" value="श"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ष&#39;)" value="ष"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;स&#39;)" value="स"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ह&#39;)" value="ह"></td>
+                      <td>&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <table class="tab-kb">
+                  <tbody>
+                    <tr>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" title="virama" onclick="alpha(&#39;्&#39;)" value="्"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <table class="tab-kb">
+                  <tbody>
+                    <tr class="arial">
+                      <td>a</td>
+                      <td>ā</td>
+                      <td>i</td>
+                      <td>ī</td>
+                      <td>u</td>
+                      <td>ū</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;अ&#39;)" value="अ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;आ&#39;)" value="आ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;इ&#39;)" value="इ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ई&#39;)" value="ई"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;उ&#39;)" value="उ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ऊ&#39;)" value="ऊ"></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ा&#39;)" value="ा"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ि&#39;)" value="ि"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ी&#39;)" value="ी"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ु&#39;)" value="ु"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ू&#39;)" value="ू"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="tab-kb">
+                  <tbody>
+                    <tr class="arial">
+                      <td>ri</td>
+                      <td>rī</td>
+                      <td>li</td>
+                      <td>lī</td>
+                      <td class="esps"></td>
+                      <td>e</td>
+                      <td>ai</td>
+                      <td>o</td>
+                      <td>au</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ऋ&#39;)" value="ऋ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ॠ&#39;)" value="ॠ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ऌ&#39;)" value="ऌ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ॡ&#39;)" value="ॡ"></td>
+                      <td>&nbsp;</td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ए&#39;)" value="ए"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ऐ&#39;)" value="ऐ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ओ&#39;)" value="ओ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;औ&#39;)" value="औ"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ृ&#39;)" value="ृ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ॄ&#39;)" value="ॄ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ॢ&#39;)" value="ॢ"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ॣ&#39;)" value="ॣ"></td>
+                      <td>&nbsp;</td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;े&#39;)" value="े"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ै&#39;)" value="ै"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ो&#39;)" value="ो"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;ौ&#39;)" value="ौ"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+                <table class="tab-kb">
+                  <tbody>
+                    <tr>
+                      <td><input type="button" class="bt" title="udatta" onclick="alpha(&#39;॑&#39;)" value=" ॑"></td>
+                      <td><input type="button" class="bt" title="anudatta" onclick="alpha(&#39;॒&#39;)" value=" ॒"></td>
+                      <td><input type="button" class="bt" title="accent grave" onclick="alpha(&#39;॓&#39;)" value="॓"></td>
+                      <td><input type="button" class="bt" title="accent aigu" onclick="alpha(&#39;॔&#39;)" value="॔"></td>
+                      <td><input type="button" class="bt" title="candra bindu" onclick="alpha(&#39;ँ&#39;)" value="ँ"></td>
+                      <td><input type="button" class="bt" title="anusvara" onclick="alpha(&#39;ं&#39;)" value="ं"></td>
+                      <td><input type="button" class="bt" title="visarga" onclick="alpha(&#39;ः&#39;)" value="ः"></td>
+                      <td><input type="button" class="bt" title="nukta" onclick="alpha(&#39;़&#39;)" value="़"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+                <table class="tab-kb">
+                  <tbody>
+                    <tr>
+                      <td><input type="button" class="bt" title="danda" onclick="alpha(&#39;।&#39;)" value="।"></td>
+                      <td><input type="button" class="bt" title="double danda" onclick="alpha(&#39;॥&#39;)" value="॥"></td>
+                      <td><input type="button" class="bt" title="avagraha" onclick="alpha(&#39;ऽ&#39;)" value="ऽ"></td>
+                      <td><input type="button" class="bt" title="symbole d&#39;abréviation" onclick="alpha(&#39;॰&#39;)" value="॰"></td>
+                      <td><input type="button" class="bt" title="om" onclick="alpha(&#39;ॐ&#39;)" value="ॐ"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+                <table class="tab-kb">
+                  <tbody>
+                    <tr class="arial">
+                      <td>0</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>3</td>
+                      <td>4</td>
+                      <td>5</td>
+                      <td>6</td>
+                      <td>7</td>
+                      <td>8</td>
+                      <td>9</td>
+                    </tr>
+                    <tr>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;०&#39;)" value="०"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;१&#39;)" value="१"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;२&#39;)" value="२"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;३&#39;)" value="३"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;४&#39;)" value="४"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;५&#39;)" value="५"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;६&#39;)" value="६"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;७&#39;)" value="७"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;८&#39;)" value="८"></td>
+                      <td><input type="button" class="bt" onclick="alpha(&#39;९&#39;)" value="९"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
     <!-- Footer -->
 
 
@@ -451,7 +591,7 @@ https://templatemo.com/tm-529-ramayana
 
   <script>
     function openNav() {
-      document.getElementById("mymastbk").style.height = "250px";
+      document.getElementById("mymastbk").style.height = "100%";
       document.getElementById("mymastbk").style.paddingBottom = "10px";
       document.getElementById("main").style.paddingBottom = "250px";
     }

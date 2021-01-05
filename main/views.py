@@ -227,7 +227,7 @@ def new_competition(request):
         return(redirect(home))
 
     form = CompetitionForm()
-        
+
     # print(form)
     # print("heyy")
 
@@ -253,7 +253,7 @@ def edit_competition(request,pk):
     competition = Competition.objects.get(pk=pk)
 
     form = CompetitionForm({"name":competition.name,"description":competition.description})
-        
+
     # print(form)
     # print("heyy")
 
@@ -266,7 +266,7 @@ def edit_competition(request,pk):
         competition.save()
         return(redirect(my_competition_description,competition.pk))
 
-    return render(request,'main/edit_competition.html',{"expert":expert,"form":form,"competition":competition})    
+    return render(request,'main/edit_competition.html',{"expert":expert,"form":form,"competition":competition})
 
 def new_fib_question(request,pk):
 
@@ -741,9 +741,24 @@ def lesson6(request):
 
 
 def history(request):
-    
     return render(request,'main/history.html')
 
+def join_class(request):
+    if request.method == 'POST':
+        if 'username' in request.POST.keys():
+            # print("Hello WOrld!")
+            curr_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            try:
+                login(request,curr_user)
+            except:
+                login_error = "The username and password combination is incorrect please check again!"
+                return render(request,'main/home.html',{"login_error":login_error})
+            return(redirect(home))
+    isexpert = False
+    if request.user.is_authenticated:
+        if Expert_data.objects.filter(user = request.user):
+            isexpert=True
+    return render(request,'main/join_class.html',{'isexpert':isexpert})
+
 def video_call(request):
-    
-    return render(request,'main/video_call.html')    
+    return render(request,'main/video_call.html')
