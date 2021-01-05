@@ -1,10 +1,14 @@
 {%extends "main/base.html"%}
 {% load static %}
 {% block content %}
+<h1>Classroom</h1>
+<p>Welcome to the classroom section. Here you can interact with your peers and experts to get indepth understanding of your knowledge of Sanskrit.<br>
+And unlike traditional classroom, here everyone is a teacher as well as a student. Use this to interact with your peers, and undergo fruitful discussions.<br>
+Keep Calm and learn Sanskrit.<br>
+Happy learning :)</p>
 {% if isexpert %}
-<button type="button" name="button" onclick="#">Create Class</button><br>
-<button type="button" name="button" onclick="window.location.href={% url 'video_call' %}">Join Class</button>
+<button type="button" name="button" onclick="window.location.href={% url 'video_call' %}">Interact</button>
 {% else %}
-<button type="button" name="button" onclick="window.location.href={% url 'video_call' %}">Join Class</button>
+<button type="button" name="button" onclick="window.location.href={% url 'video_call' %}">Interact</button>
 {% endif %}
 {% endblock %}
