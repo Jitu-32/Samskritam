@@ -762,3 +762,6 @@ def join_class(request):
 
 def video_call(request):
     return render(request,'main/video_call.html')
+
+def about_us(request):
+    return render(request,'main/about_us.html')

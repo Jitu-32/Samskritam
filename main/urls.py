@@ -45,6 +45,7 @@ urlpatterns = [
 
 	path('classes/',views.join_class,name='class'),
 	path('video_call/',views.video_call,name='video_call'),
+	path('about_us/',views.about_us,name='about_us'),
 
 
 ]
