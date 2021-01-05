@@ -25,7 +25,7 @@ urlpatterns = [
 	path('new_mcq_option/<int:pk>/',views.new_mcq_option,name="new_mcq_option"),
 	path('new_competition/',views.new_competition,name="new_competition"),
 	path('edit_competition/<int:pk>/',views.edit_competition,name="edit_competition"),
-
+	path('new_fib_question/<int:pk>/',views.new_fib_question,name="new_fib_question"),
 
 	path('play/',views.play,name="play"),
 	path('play/<str:gamename>/',views.game,name="game"),
