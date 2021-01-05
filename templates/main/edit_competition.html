@@ -15,7 +15,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="section-heading">
-                      <h2>New Competition</h2>
+                      <h2>Edit Competition</h2>
                     </div>
                     <form id="contact" action="" method="post">
                       {% csrf_token %}
@@ -24,15 +24,19 @@
                         {{form.as_table}}
                       </table>
 
+                      <!-- {{competition.start_time}} -->
+                      <!-- {{competition.name}} -->
+
                       <label for="start_time"><b>Start Time:</b></label>
-                      <input type="datetime-local" id="start_time" name="start_time">
+                      <input type="datetime-local" id="start_time" name="start_time" value="{{competition.start_time}}">
+                      <!-- <input type="text" name="test" value="5"> -->
 
                       <label for="end_time"><b>End Time:</b></label>
-                      <input type="datetime-local" id="end_time" name="end_time">
+                      <input type="datetime-local" id="end_time" name="end_time" value="{{competition.end_time}}">
 
                       <br>
                       <div class="col-md-12">
-                          <button type="submit" id="form-submit" class="button">Create Contest</button>
+                          <button type="submit" id="form-submit" class="button">Edit Contest</button>
                         </div>
                     </form>
                   </div>
